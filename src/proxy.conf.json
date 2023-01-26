@@ -1,10 +1,19 @@
 {
-  "/backend": {
+  "/employees": {
     "target": "http://localhost:8089/employees",
     "secure": false,
     "logLevel": "debug",
     "pathRewrite": {
-      "^/backend": ""
+      "^/employees": ""
+    },
+    "changeOrigin": true
+  },
+  "/qualifications": {
+    "target": "http://localhost:8089/qualifications",
+    "secure": false,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/qualifications": ""
     },
     "changeOrigin": true
   }
