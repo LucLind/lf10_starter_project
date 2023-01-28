@@ -1,10 +1,10 @@
 {
-  "/employees": {
+  "/employeeService": {
     "target": "http://localhost:8089/employees",
     "secure": false,
     "logLevel": "debug",
     "pathRewrite": {
-      "^/employees": ""
+      "^/employeeService": ""
     },
     "changeOrigin": true
   },

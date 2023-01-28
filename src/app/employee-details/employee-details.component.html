@@ -1,0 +1,29 @@
+<a routerLink="/employees" routerLinkActive="active"><button class="btn btn-primary"><--</button></a>
+ <div *ngIf="(employee | async) as e;">
+    <div class="d-flex">
+        <div class="p-2 w-100">
+            <div>Vorname</div>
+            <input type="text" class="w-100" value="{{e.firstName}}"/>
+        </div>
+        <div class="p-2 w-100">
+            <div>Nachname</div>
+            <input type="text" class="w-100" value="{{e.lastName}}"/>
+        </div>
+    </div>
+    <div class="p-2">
+        <div>Straße</div>
+        <input type="text" class="w-100" value="{{e.street}}">
+    </div>
+    <div class="p-2 ">
+        <div>PLZ</div>
+        <input type="text" class="w-100" value="{{e.postcode}}"/>
+    </div>
+    <div class="p-2">
+        <div>Ort</div>
+        <input type="text" class="w-100" value="{{e.city}}"/>
+    </div>
+    <div class="p-2">
+        <div>Telefon</div>
+        <input type="text" class="w-100" value="{{e.phone}}"/>
+    </div>
+ </div>
