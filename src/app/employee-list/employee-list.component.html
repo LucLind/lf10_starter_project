@@ -1,9 +1,18 @@
-<h1>LF10-Starter</h1>
-Wenn Sie in der EmployeeListComponent.ts ein gültiges Bearer-Token eintragen, sollten hier die Namen der in der Datenbank gespeicherten Mitarbeiter angezeigt werden!
-<ul>
-  <li *ngFor="let e of employees$ | async">
-    <a routerLink="/employees/{{e.id}}">{{e.lastName }}, {{e.firstName}}</a>
-  </li>
-</ul>
-<app-qualification-list></app-qualification-list>
-<router-outlet></router-outlet>
+<app-navigation-header [navBackPath]=""></app-navigation-header>
+<div class="container">
+
+  <h1>LF10-Starter</h1>
+  Wenn Sie in der EmployeeListComponent.ts ein gültiges Bearer-Token eintragen, sollten hier die Namen der in der Datenbank gespeicherten Mitarbeiter angezeigt werden!
+  <ul>
+    <li *ngFor="let e of employees$ | async">
+      <a routerLink="/employees/{{e.id}}">{{e.lastName }}, {{e.firstName}}</a>
+    </li>
+  </ul>
+  <a routerLink="/employees/create" routerLinkActive="active"><button class="btn btn-primary">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+      <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+      <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+    </svg>
+  </button></a>
+  <app-qualification-list></app-qualification-list>
+</div>
