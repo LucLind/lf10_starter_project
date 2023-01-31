@@ -24,18 +24,14 @@ export class EmployeeEditComponent {
   }
 
   fetchData() {
-    let token = '' + localStorage.getItem('auth_token');
     this.employee = this.http.get<Employee>(`/employeeService/${this.id}`, {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
-        .set('Authorization', token)
     });
     this.employee.subscribe(e => this.emp = e);
   }
 
   OnSave() {
-    let token = '' + localStorage.getItem('auth_token');
-
     var body = {
       "lastName": this.emp.lastName,
       "firstName": this.emp.firstName,
@@ -48,7 +44,6 @@ export class EmployeeEditComponent {
     this.http.put<any>(`/employeeService/${this.id}`, body,  {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
-        .set('Authorization', token)
     }).subscribe({
       error: error => {
           console.error('There was an error!', error);

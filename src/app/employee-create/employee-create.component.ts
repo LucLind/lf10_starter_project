@@ -9,8 +9,6 @@ import { Employee } from '../Employee';
 })
 export class EmployeeCreateComponent {
   OnSave() {
-    let token = '' + localStorage.getItem('auth_token');
-
     var body = {
       "lastName": this.employee.lastName,
       "firstName": this.employee.firstName,
@@ -25,7 +23,6 @@ export class EmployeeCreateComponent {
     this.http.post<any>('/employeeService', body,  {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
-        .set('Authorization', token)
     }).subscribe({
       error: error => {
           console.error('There was an error!', error);

@@ -18,11 +18,9 @@ export class EmployeeListComponent {
   }
 
   fetchData() {
-    var token = '' + localStorage.getItem('auth_token');
     this.employees$ = this.http.get<Employee[]>('/employeeService', {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
-        .set('Authorization', token)
     });
     
   }
