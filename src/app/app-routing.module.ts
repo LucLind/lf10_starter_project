@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { KeycloakAuthGuard } from 'keycloak-angular';
 import { EmployeeCreateComponent } from './employee-create/employee-create.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
 import{EmployeeListComponent} from "./employee-list/employee-list.component";
+import { HomeComponent } from './home/home.component';
+import { AuthGuard } from './keykloak.guard';
 
 const routes: Routes = [
-  //{ path: '', redirectTo: '/employees', pathMatch: 'full' },
-  { path: 'employees', component: EmployeeListComponent},
+  { path: '', component: HomeComponent, },
+  { path: 'employees', component: EmployeeListComponent, canActivate: [AuthGuard]},
   { path: 'employees/create', component: EmployeeCreateComponent},
   { path: 'employees/:id', component: EmployeeEditComponent},
 ];
