@@ -1,0 +1,26 @@
+.list-wrapper {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.head-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.head-wrapper button {
+  margin-left: 1rem;
+}
+
+h2 {
+  margin-top: 1rem;
+}
+
+.list-employee {
+  /* margin-top: 5px; */
+}
+
+.employee-data {}
+
+.qualification-data {}

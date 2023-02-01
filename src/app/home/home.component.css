@@ -1,0 +1,29 @@
+.home-container {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.portal-container {
+  margin-top: 4rem;
+}
+
+.portal-container button {
+  margin-top: 1.5rem;
+}
+
+.btn-logout {
+  margin-top: 95%;
+}
+
+.spacer {
+  margin-left: 10px;
+}
+
+.start-container {
+  margin-top: 10rem;
+}
+
+.start-container > button {
+  margin-top: 1rem;
+}
