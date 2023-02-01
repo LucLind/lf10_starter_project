@@ -1,3 +1,7 @@
+.btn {
+  padding-bottom: .6rem;
+}
+
 .list-wrapper {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
@@ -17,10 +21,29 @@ h2 {
   margin-top: 1rem;
 }
 
-.list-employee {
-  /* margin-top: 5px; */
+.employee-card {
+  background-color: #eeeeee;
+  margin-bottom: 0.3rem;
+  padding: .5rem;
+  border-radius: .4rem;
 }
 
-.employee-data {}
+.employee-card p { }
 
-.qualification-data {}
+.employee-card-content {
+  margin-left: .7rem;
+  display: flex;
+  color: #000;
+  width: 83%;
+  overflow: auto;
+}
+
+.employee-card-arrow {
+ text-align: right;
+  width: 16%
+}
+
+.bar {
+  margin: 8px auto;
+  color: #696969;
+}
