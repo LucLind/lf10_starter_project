@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Qualification } from '../Qualification';
 
 @Component({
@@ -11,19 +12,23 @@ export class QualificationCreateComponent {
 
   
   OnSave() {
+    let that = this;
     this.http.post<any>('/qualificationsService', `{"designation": "${this.qualification.designation}"}`,  {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
     }).subscribe({
       error: error => {
           console.error('There was an error!', error);
-      }
+      },
+      complete() {
+        that.router.navigateByUrl('/qualifications');
+      },
     })
-
+    
   }
   public qualification:Qualification;
 
-  constructor(private http: HttpClient){
+  constructor(private http: HttpClient, public router:Router){
     this.qualification = new Qualification();
   }
 }
