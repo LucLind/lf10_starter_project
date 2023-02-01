@@ -22,4 +22,17 @@ export class QualificationListComponent {
         .set('Content-Type', 'application/json')
     });
   }
+
+  OnDelete(quali:Qualification){
+    console.log(quali);
+    this.http.delete<any>('/qualificationsService', {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json'),
+      body: quali
+    }).subscribe({
+      error: error => {
+          console.error('There was an error!', error);
+      }
+    });
+  }
 }
