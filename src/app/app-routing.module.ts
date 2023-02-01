@@ -11,8 +11,8 @@ import { AuthGuard } from './keykloak.guard';
 const routes: Routes = [
   { path: '', component: HomeComponent, },
   { path: 'employees', component: EmployeeListComponent, canActivate: [AuthGuard]},
-  { path: 'employees/create', component: EmployeeCreateComponent},
-  { path: 'employees/:id', component: EmployeeEditComponent},
+  { path: 'employees/create', component: EmployeeCreateComponent, canActivate: [AuthGuard]},
+  { path: 'employees/:id', component: EmployeeEditComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({
