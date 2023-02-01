@@ -21,6 +21,11 @@ cd docker
 docker compose up
 ```
 
+### Angular starten
+```bash
+ng serve --proxy-config src/proxy.conf.json
+```
+
 Achtung: Der Docker-Container läuft dauerhaft! Wenn er nicht mehr benötigt wird, solltest du ihn stoppen.
 
 ### Abhängigkeiten stoppen
