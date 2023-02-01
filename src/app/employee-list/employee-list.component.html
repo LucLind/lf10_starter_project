@@ -2,9 +2,13 @@
 <section class="list-wrapper">
   <div class="head-wrapper">
     <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+
+      <!-- TODO: Search functionality -->
+      <input (change)="$event" class="form-control me-2" type="search" placeholder="Suchen" aria-label="Search">
       <button class="btn btn-primary" type="submit">
-        Yo
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg>
       </button>
     </form>
     <a routerLink="/employees/create" routerLinkActive="active">
@@ -17,18 +21,19 @@
     </a>
   </div>
   <h2>Alle Mitarbeiter</h2>
-  <div *ngFor="let e of employees$ | async">
-    <div class="list-employee">
-      <div class="employee-data">
-        <a routerLink="/employees/{{e.id}}">{{e.lastName }}, {{e.firstName}}</a>
+  <div class="employee-card"*ngFor="let e of employees$ | async">
+      <div class="employee-card-content" routerLink="/employees/{{e.id}}">
+        <p>{{e.lastName }}, {{e.firstName}}</p>
+        <div class="employee-card-arrow">
+          sss
+        </div>
       </div>
-      <div class="qualification-data">
-        <span class="badge badge-pill badge-secondary">Secondary</span>
-        <span class="badge badge-pill badge-secondary">Secondary</span>
-        <span class="badge badge-pill badge-secondary">Secondary</span>
-      </div>
+
+      <hr class="bar">
+      <div class="employee-card-content">
+     <!-- Hier muss eine Iteration über die Qualis der Mitarbeiter  <div class="qualification-wrapper"*ngFor=" | async"> -->
+        <span class="badge text-bg-primary">TAG</span>
       </div>
     </div>
-  <app-qualification-list></app-qualification-list>
 </section>
 
