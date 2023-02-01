@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { Qualification } from '../Qualification';
 
@@ -10,13 +11,16 @@ import { Qualification } from '../Qualification';
 })
 export class QualificationListComponent {
   qualifications$: Observable<Qualification[]>;
+  qualificationToDelete: Qualification = new Qualification();
+  dialogClass :string = "confirm-delete-dialog";
+  dialogClassN :string = "confirm-delete-dialog";
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.qualifications$ = of([]);
     this.fetchData();
   }
 
-  fetchData() {
+  public fetchData() {
     this.qualifications$ = this.http.get<Qualification[]>('/qualificationsService', {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
@@ -24,15 +28,30 @@ export class QualificationListComponent {
   }
 
   OnDelete(quali:Qualification){
-    console.log(quali);
+    this.qualificationToDelete = quali;
+    this.dialogClass = "dialog-visible"
+
+    //window.location.reload(
+  }
+  OnDeleteConfirm(){
+    let that = this;
+    console.log(this.qualificationToDelete);
     this.http.delete<any>('/qualificationsService', {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json'),
-      body: quali
+      body: this.qualificationToDelete
     }).subscribe({
       error: error => {
           console.error('There was an error!', error);
+      },
+      complete(){
+        that.fetchData();
+        that.dialogClassN = "delete-success";
+        that.dialogClass = "confirm-delete-dialog";
       }
     });
+  }
+  OnDeleteCancel(){
+    this.dialogClass = "confirm-delete-dialog";
   }
 }
