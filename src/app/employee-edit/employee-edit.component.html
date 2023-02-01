@@ -2,9 +2,11 @@
 <div *ngIf="(employee |async)">
 
     
-    <app-employee-details [employee]="this.emp"></app-employee-details>
+    <app-employee-details [employee]="this.emp" [disableEdit]="this.disableEdit"></app-employee-details>
 </div>
-<div class="d-flex flex-row-reverse container">
+<div class="d-flex container">
 
+    <button class="btn btn-primary" (click)="OnEdit()">Bearbeiten</button>
+    <div class="mx-auto"></div>
     <button class="btn btn-success" (click)="OnSave()">Speichern</button>
 </div>

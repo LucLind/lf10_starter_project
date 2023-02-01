@@ -14,6 +14,7 @@ export class EmployeeEditComponent {
   @Output()
   emp: Employee;
   id;
+  disableEdit: boolean = true;
 
   constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
@@ -49,5 +50,9 @@ export class EmployeeEditComponent {
           console.error('There was an error!', error);
       }
     })
+  }
+
+  OnEdit(){
+    this.disableEdit = false;
   }
 }

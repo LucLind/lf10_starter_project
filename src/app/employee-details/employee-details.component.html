@@ -2,27 +2,27 @@
     <div class="d-flex">
         <div class="p-2 w-100">
             <div>Vorname</div>
-            <input class="w-100" [(ngModel)]="employee.firstName">
+            <input class="w-100" [(ngModel)]="employee.firstName" [disabled]="disableEdit">
         </div>
         <div class="p-2 w-100">
             <div>Nachname</div>
-            <input class="w-100" [(ngModel)]="employee.lastName">
+            <input class="w-100" [(ngModel)]="employee.lastName" [disabled]="disableEdit">
         </div>
     </div>
     <div class="p-2">
         <div>Straße</div>
-        <input class="w-100" [(ngModel)]="employee.street">
+        <input class="w-100" [(ngModel)]="employee.street" [disabled]="disableEdit">
     </div>
     <div class="p-2 ">
         <div>PLZ</div>
-        <input class="w-100" [(ngModel)]="employee.postcode">
+        <input class="w-100" [(ngModel)]="employee.postcode" [disabled]="disableEdit">
     </div>
     <div class="p-2">
         <div>Ort</div>
-        <input class="w-100" [(ngModel)]="employee.city">
+        <input class="w-100" [(ngModel)]="employee.city" [disabled]="disableEdit">
     </div>
     <div class="p-2">
         <div>Telefon</div>
-        <input class="w-100" [(ngModel)]="employee.phone">
+        <input class="w-100" [(ngModel)]="employee.phone" [disabled]="disableEdit">
     </div>
  </div>
