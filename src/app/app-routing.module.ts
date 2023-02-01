@@ -7,12 +7,16 @@ import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
 import{EmployeeListComponent} from "./employee-list/employee-list.component";
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './keykloak.guard';
+import { QualificationCreateComponent } from './qualification-create/qualification-create.component';
+import { QualificationListComponent } from './qualification-list/qualification-list.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, },
   { path: 'employees', component: EmployeeListComponent, canActivate: [AuthGuard]},
   { path: 'employees/create', component: EmployeeCreateComponent, canActivate: [AuthGuard]},
   { path: 'employees/:id', component: EmployeeEditComponent, canActivate: [AuthGuard]},
+  { path: 'qualifications', component: QualificationListComponent, canActivate: [AuthGuard]},
+  { path: 'qualifications/create', component: QualificationCreateComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

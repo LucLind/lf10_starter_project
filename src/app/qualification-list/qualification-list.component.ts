@@ -17,11 +17,9 @@ export class QualificationListComponent {
   }
 
   fetchData() {
-    var token = '' + localStorage.getItem('auth_token');
-    this.qualifications$ = this.http.get<Qualification[]>('/qualifications', {
+    this.qualifications$ = this.http.get<Qualification[]>('/qualificationsService', {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
-        .set('Authorization', token)
     });
   }
 }

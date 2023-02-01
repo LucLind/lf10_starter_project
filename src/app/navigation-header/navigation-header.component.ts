@@ -7,6 +7,7 @@ import { Component, Injectable, Injector, Input } from '@angular/core';
 })
 export class NavigationHeaderComponent {
   @Input() navBackPath:string | undefined;
+  @Input() header:string | undefined;
 
   constructor(){
     this.navBackPath = this.navBackPath;

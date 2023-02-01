@@ -27,7 +27,7 @@ export class EmployeeCreateComponent {
       error: error => {
           console.error('There was an error!', error);
       }
-  })
+    })
   }
 
   public employee: Employee

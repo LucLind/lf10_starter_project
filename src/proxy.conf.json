@@ -8,12 +8,12 @@
     },
     "changeOrigin": true
   },
-  "/qualifications": {
+  "/qualificationsService": {
     "target": "http://localhost:8089/qualifications",
     "secure": false,
     "logLevel": "debug",
     "pathRewrite": {
-      "^/qualifications": ""
+      "^/qualificationsService": ""
     },
     "changeOrigin": true
   }

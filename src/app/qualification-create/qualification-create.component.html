@@ -1,0 +1,8 @@
+<app-navigation-header [navBackPath]="'/qualifications'" [header]="'Qualifikationen'"></app-navigation-header>
+<div class="container">
+    <div>Neue Qualifikation</div>
+        <input class="w-100" [(ngModel)]="qualification.designation">
+        <div class="d-flex flex-row-reverse container">
+            <button class="btn btn-success" (click)="OnSave()">Speichern</button>
+        </div>
+</div>
