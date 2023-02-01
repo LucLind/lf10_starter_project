@@ -52,7 +52,11 @@ export class EmployeeEditComponent {
     })
   }
 
-  OnEdit(){
+  OnCancel() {
+    window.location.reload();
+  }
+
+  OnEdit() {
     this.disableEdit = false;
   }
 }

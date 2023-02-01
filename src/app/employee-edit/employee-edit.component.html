@@ -1,12 +1,10 @@
 <app-navigation-header [navBackPath]='"/employees"' [header]="'Mitarbeiter'"></app-navigation-header>
 <div *ngIf="(employee |async)">
-
-    
     <app-employee-details [employee]="this.emp" [disableEdit]="this.disableEdit"></app-employee-details>
 </div>
 <div class="d-flex container">
-
-    <button class="btn btn-primary" (click)="OnEdit()">Bearbeiten</button>
+    <button class="btn btn-primary" *ngIf="disableEdit" (click)="OnEdit()">Bearbeiten</button>
+    <button class="btn btn-primary" *ngIf="!disableEdit" (click)="OnCancel()">Abbrechen</button>
     <div class="mx-auto"></div>
     <button class="btn btn-success" (click)="OnSave()">Speichern</button>
 </div>
