@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { HomeComponent } from './home/home.component';
 import { QualificationCreateComponent } from './qualification-create/qualification-create.component';
+import { EmployeeListEntryComponent } from './employee-list-entry/employee-list-entry.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -41,7 +42,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     EmployeeEditComponent,
     EmployeeCreateComponent,
     HomeComponent,
-    QualificationCreateComponent
+    QualificationCreateComponent,
+    EmployeeListEntryComponent
   ],
   imports: [
     BrowserModule,

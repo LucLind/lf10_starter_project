@@ -1,0 +1,51 @@
+.btn {
+    padding-bottom: .6rem;
+  }
+  
+  .list-wrapper {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+  
+  .head-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .head-wrapper button {
+    margin-left: .5rem;
+  }
+  
+  h2 {
+    margin-top: 1rem;
+  }
+  
+  .employee-card {
+    background-color: #eeeeee;
+    margin-bottom: 0.3rem;
+    padding: .5rem;
+    border-radius: .4rem;
+  }
+  
+  
+  .employee-card-content {
+    margin-left: .7rem;
+    display: flex;
+    color: #000;
+    max-width: 85%;
+  
+  }
+  
+  .employee-card-arrow {
+    position: absolute;
+    right: 1.5rem;
+    width: 3rem;
+    color: #0d6efd;
+  }
+  
+  .bar {
+    margin: 8px auto;
+    color: #696969;
+  }
+  
