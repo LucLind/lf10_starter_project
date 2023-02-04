@@ -54,7 +54,7 @@ h2 {
   /* position: absolute;
   right: 1.5rem;
   width: 3rem; */
-  color: #0d6efd;
+  color: var(--primary);
 }
 
 .bar {
@@ -65,4 +65,13 @@ h2 {
 .divide-line {
   border-bottom: .1rem solid #e0e0e0;
   margin: 0;
+}
+
+.tag {
+  background-color: var(--primary);
+  color: #fff;
+  border-radius: .3rem;
+  font-size: small;
+  padding: .1rem .3rem .1rem .3rem;
+
 }

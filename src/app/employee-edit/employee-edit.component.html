@@ -3,8 +3,8 @@
     <app-employee-details [employee]="this.emp" [disableEdit]="this.disableEdit"></app-employee-details>
 </div>
 <div class="d-flex container">
-    <button class="btn btn-primary" *ngIf="disableEdit" (click)="OnEdit()">Bearbeiten</button>
-    <button class="btn btn-primary" *ngIf="!disableEdit" (click)="OnCancel()">Abbrechen</button>
+    <button class="button-primary" *ngIf="disableEdit" (click)="OnEdit()">Bearbeiten</button>
+    <button class="button-primary" *ngIf="!disableEdit" (click)="OnCancel()">Abbrechen</button>
     <div class="mx-auto"></div>
-    <button class="btn btn-success" (click)="OnSave()">Speichern</button>
+    <button class="button-confirm" (click)="OnSave()">Speichern</button>
 </div>

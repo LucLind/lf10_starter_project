@@ -1,7 +1,13 @@
+.navigation-header {
+  background-color: #fff;
+  border-bottom: 1px solid var(--primary);
+  box-shadow: 0 0 0.5rem #e0e0e0;
+  padding: 0.1rem;
+  margin-bottom: 1rem;
+}
+
 .headline {
   font-size: large;
   font-weight: bold;
   letter-spacing: 1px;
 }
-
-
