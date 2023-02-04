@@ -34,23 +34,34 @@
     </div>
 
    <div>Qualifikationen</div>
-   <div class="detail-view-quali">
-     <input *ngIf="!disableEdit" class="w-50" [(ngModel)]="employee.city" disabled>
+   <div class="">
+      <div class="d-flex" *ngIf="!disableEdit">
+        <select class="w-50">
+          <option *ngFor="let quali of qualificationOptions | async" [value]="quali.designation">{{quali.designation}}</option>
+        </select>
+        <div class="btn btn-primary">
+          hinzufügen
+        </div>
+      </div>
+      
+      <!-- <input *ngIf="!disableEdit" class="w-50" [(ngModel)]="employee.city" disabled> -->
 
-     <div *ngIf="disableEdit" class="quali-wrap text-bg-primary">
-       <div class="badge badge-pill badge-primary detail-view-quali">
-     <input class="disabled-detail-view-field disabled-detail-view-field-badge"  [(ngModel)]="employee.city" disabled>
-       </div>
-       <div class="badge bade-pill detail-view-delete">
-         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
-           <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-         </svg>
-       </div>
-     </div>
 
-     <div class="btn btn-primary">
-       Qualifikation hinzufügen
-     </div>
-   </div>
+      <div *ngIf="disableEdit" class="">
+        <div class="d-flex mb-1" *ngFor="let quali of employeeQualifications">
+
+            
+              <input class="quali-entry"  [(ngModel)]="quali.designation" disabled>
+            <div class="detail-view-delete">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-x-circle-fill delete-svg" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+              </svg>
+            </div>
+        </div>
+      </div>
+      
+
+      
+    </div>
 
  </div>
