@@ -26,7 +26,7 @@
 
   </div>
   <h2>Alle Mitarbeiter</h2>
-  <div class="employee-card card-fade-in" *ngFor="let e of employees$ | async">
-    <app-employee-list-entry [employee]="e"></app-employee-list-entry>
+  <div class="card-list" *ngFor="let e of employees$ | async">
+    <app-employee-list-entry class="card-fade-in" [employee]="e"></app-employee-list-entry>
   </div>
 </section>

@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+.app-body {
+    background-color: #efefef
+}
+
+:root {
+    --primary: #ff9d0a;
+    --secondary: #6c757d;
+    --success: #198754;
+    --info: #0dcaf0;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary-rgb: 13, 110, 253;
+    --secondary-rgb: 108, 117, 125;
+    --success-rgb: 25, 135, 84;
+    --info-rgb: 13, 202, 240;
+    --warning-rgb: 255, 193, 7;
+    --danger-rgb: 220, 53, 69;
+    --light-rgb: 248, 249, 250;
+    --dark-rgb: 33, 37, 41;
+    --white-rgb: 255, 255, 255;
+    --gray-rgb: 108, 117, 125;
+    --gray-dark-rgb: 52, 58, 64;
+}

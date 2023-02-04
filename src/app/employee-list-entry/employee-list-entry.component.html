@@ -1,20 +1,23 @@
-<div class="employee-card-content d-flex" routerLink="/employees/{{employee.id}}">
-  <div>{{employee.lastName }}, {{employee.firstName}}</div>
-  <div class="mx-auto"></div>
-  <div class="employee-card-arrow">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-      class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
-      <path
-        d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
-    </svg>
+<div class="employee-card">
+
+  <div class="employee-card-name" routerLink="/employees/{{employee.id}}">
+    <div>{{employee.lastName }}, {{employee.firstName}}</div>
+    <div class="employee-card-arrow">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+        class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+        <path
+          d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+      </svg>
+    </div>
   </div>
-</div>
 
-<hr class="bar">
-<div class="employee-card-content">
-  <!-- Hier muss eine Iteration über die Qualis der Mitarbeiter  <div class="qualification-wrapper"*ngFor=" | async"> -->
-  <div class="qualification-wrapper" *ngFor=" let q of qualifications">
+  <div class="divide-line"></div>
 
-    <span class="badge text-bg-primary">{{q.designation}}</span>
+  <div class="employee-card-qualification">
+    <!-- Hier muss eine Iteration über die Qualis der Mitarbeiter  <div class="qualification-wrapper"*ngFor=" | async"> -->
+    <div class="qualification-wrapper" *ngFor=" let q of qualifications">
+
+      <span class="badge text-bg-primary me-1">{{q.designation}}</span>
+    </div>
   </div>
 </div>

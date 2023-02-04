@@ -1,67 +1,76 @@
- <div class="container">
-   <div class="p-2 w-100">
-     <div>Vorname</div>
-     <input *ngIf="!disableEdit" class="w-100" [(ngModel)]="employee.firstName">
-     <input *ngIf="disableEdit" class="disabled-detail-view-field" [(ngModel)]="employee.firstName" disabled>
-   </div>
-   <div class="p-2">
-     <div>Nachname</div>
-     <input *ngIf="!disableEdit" class="w-100" [(ngModel)]="employee.lastName">
-     <input *ngIf="disableEdit" class="disabled-detail-view-field" [(ngModel)]="employee.lastName" disabled>
-   </div>
-    <div class="p-2">
-        <div>Straße</div>
+<div class="container">
+  <div class="employee-field">
+    <div class="employee-section">
+
+      <div class="p-2 w-100">
+        <div class="input-head">Vorname</div>
+        <input *ngIf="!disableEdit" class="w-100" [(ngModel)]="employee.firstName">
+        <input *ngIf="disableEdit" class="disabled-detail-view-field" [(ngModel)]="employee.firstName" disabled>
+      </div>
+      <div class="p-2">
+        <div class="input-head">Nachname</div>
+        <input *ngIf="!disableEdit" class="w-100" [(ngModel)]="employee.lastName">
+        <input *ngIf="disableEdit" class="disabled-detail-view-field" [(ngModel)]="employee.lastName" disabled>
+      </div>
+      <div class="p-2">
+        <div class="input-head">Straße</div>
         <input *ngIf="!disableEdit" class="w-100" [(ngModel)]="employee.street">
         <input *ngIf="disableEdit" class="disabled-detail-view-field" [(ngModel)]="employee.street" disabled>
-    </div>
-   <div class="d-flex">
-     <div class="p-2 w-25">
-       <div>PLZ</div>
-       <input *ngIf="!disableEdit" class="w-100" [(ngModel)]="employee.postcode">
-       <input *ngIf="disableEdit" class="disabled-detail-view-field" [(ngModel)]="employee.postcode" disabled>
-     </div>
-     <div class="p-2 w-100">
-       <div>Ort</div>
-       <input *ngIf="!disableEdit" class="w-100" [(ngModel)]="employee.city">
-       <input *ngIf="disableEdit" class="disabled-detail-view-field" [(ngModel)]="employee.city" disabled>
-     </div>
-   </div>
-
-    <div class="p-2">
-        <div>Telefon</div>
+      </div>
+      <div class="d-flex">
+        <div class="p-2 w-25">
+          <div class="input-head">PLZ</div>
+          <input *ngIf="!disableEdit" class="w-100" [(ngModel)]="employee.postcode">
+          <input *ngIf="disableEdit" class="disabled-detail-view-field" [(ngModel)]="employee.postcode" disabled>
+        </div>
+        <div class="p-2 w-100">
+          <div class="input-head">Ort</div>
+          <input *ngIf="!disableEdit" class="w-100" [(ngModel)]="employee.city">
+          <input *ngIf="disableEdit" class="disabled-detail-view-field" [(ngModel)]="employee.city" disabled>
+        </div>
+      </div>
+      <div class="p-2">
+        <div class="input-head">Telefon</div>
         <input *ngIf="!disableEdit" class="w-100" [(ngModel)]="employee.phone">
         <input *ngIf="disableEdit" class="disabled-detail-view-field" [(ngModel)]="employee.phone" disabled>
-    </div>
-
-   <div>Qualifikationen</div>
-   <div class="">
-      <div class="d-flex" *ngIf="!disableEdit">
-        <select class="w-50">
-          <option *ngFor="let quali of qualificationOptions | async" [value]="quali.designation">{{quali.designation}}</option>
-        </select>
-        <div class="btn btn-primary">
-          hinzufügen
-        </div>
       </div>
-      
-      <!-- <input *ngIf="!disableEdit" class="w-50" [(ngModel)]="employee.city" disabled> -->
+    </div>
+    <div class="divide-line"></div>
+    <div class="employee-section card-bottom">
+
+      <div class="input-head">Qualifikationen</div>
+      <div class="qualification-field">
+        <div class="d-flex" *ngIf="!disableEdit">
+          <select class="w-50">
+            <option *ngFor="let quali of qualificationOptions | async" [value]="quali.designation">{{quali.designation}}
+            </option>
+          </select>
+          <div class="btn btn-primary">
+            hinzufügen
+          </div>
+        </div>
+
+        <!-- <input *ngIf="!disableEdit" class="w-50" [(ngModel)]="employee.city" disabled> -->
 
 
-      <div *ngIf="disableEdit" class="">
-        <div class="d-flex mb-1" *ngFor="let quali of employeeQualifications">
+        <div *ngIf="disableEdit" class="">
+          <div class="d-flex mb-1" *ngFor="let quali of employeeQualifications">
 
-            
-              <input class="quali-entry"  [(ngModel)]="quali.designation" disabled>
+
+            <input class="quali-entry" [(ngModel)]="quali.designation" disabled>
             <div class="detail-view-delete">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-x-circle-fill delete-svg" viewBox="0 0 16 16">
-                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                class="bi bi-x-circle-fill delete-svg" viewBox="0 0 16 16">
+                <path
+                  d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
               </svg>
             </div>
+          </div>
         </div>
       </div>
-      
-
-      
     </div>
+  </div>
 
- </div>
+
+
+</div>
