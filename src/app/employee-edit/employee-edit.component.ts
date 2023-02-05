@@ -3,6 +3,7 @@ import { Component, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { mapTo, Observable, of, take } from 'rxjs';
 import { Employee } from '../Employee';
+import { EmployeeQualificationEntry } from '../Qualification';
 
 @Component({
   selector: 'app-employee-edit',
@@ -13,6 +14,8 @@ export class EmployeeEditComponent {
   employee: Observable<Employee>;
   @Output()
   emp: Employee;
+  @Output()
+  employeeQualifications: EmployeeQualificationEntry[];
   id;
   disableEdit: boolean = true;
 
@@ -21,6 +24,7 @@ export class EmployeeEditComponent {
 
     this.employee = of();
     this.emp = new Employee();
+    this.employeeQualifications = [];
     this.fetchData();
   }
 
@@ -30,6 +34,15 @@ export class EmployeeEditComponent {
         .set('Content-Type', 'application/json')
     });
     this.employee.subscribe(e => this.emp = e);
+
+    this.http.get<any>(`/employeeService/${this.id}/qualifications`, {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+    }).subscribe(data => {
+      this.employeeQualifications = data.skillSet.map((skill: any) => {
+        return new EmployeeQualificationEntry(skill.designation, false, false);
+      });
+    });
   }
 
   OnSave() {
@@ -42,14 +55,44 @@ export class EmployeeEditComponent {
       "phone": this.emp.phone
     }
 
-    this.http.put<any>(`/employeeService/${this.id}`, body,  {
+    this.http.put<any>(`/employeeService/${this.id}`, body, {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
     }).subscribe({
       error: error => {
-          console.error('There was an error!', error);
+        console.error('There was an error!', error);
       }
     })
+
+    var newQualifications = this.employeeQualifications.filter(q => q.newlyAdded && !q.removeFlag);
+    var deletedQualifications = this.employeeQualifications.filter(q => q.removeFlag);
+
+    newQualifications.forEach(q => {
+      this.http.post<any>(`/employeeService/${this.id}/qualifications`, q, {
+        headers: new HttpHeaders()
+          .set('Content-Type', 'application/json')
+      }).subscribe({
+        error: error => {
+          console.error('There was an error!', error);
+        }
+      });
+    });
+
+    deletedQualifications.forEach(q => {
+      this.http.delete<any>(`/employeeService/${this.id}/qualifications`, {
+        headers: new HttpHeaders()
+          .set('Content-Type', 'application/json'),
+        body: q
+      }).subscribe({
+        error: error => {
+          console.error('There was an error!', error);
+        },
+        complete: () => {
+          this.employeeQualifications = this.employeeQualifications.filter(q => !q.removeFlag);
+        }
+      });
+    });
+    this.disableEdit = true;
   }
 
   OnCancel() {

@@ -31,7 +31,7 @@
   font-family: inherit;
   font-size: 20px;
   color: #000;
-  width: auto;
+  width: 100%;
   cursor: default;
   background-color: #fff;
 }
@@ -45,15 +45,20 @@
   background: var(--danger);
   width: 3rem;
   height: 2.3rem;
-  padding-top: 0.4rem;
+  padding-left: .2rem;
   color: white;
   border-radius: 0 .4rem .4rem 0;
+  border: none;
 }
 
-.delete-svg {
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-left: 0.8rem;
+.marked-delete>button {
+  background-color: var(--warning) !important;
+  text-decoration: line-through;
+  color: white;
+}
+
+.detail-view-delete:hover {
+  background: var(--danger-hover);
 }
 
 .detail-view-quali {
@@ -71,11 +76,36 @@
 }
 
 .quali-entry {
-  max-width: 80%;
+  width: 100%;
+  border: none;
+  display: flex;
+}
+
+.quali-entry-content {
+  border: none;
+  padding-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  width: 100%;
   height: 2.3rem;
-  padding: 1rem;
   background-color: var(--primary);
   color: #ffffff;
-  border: none;
+  font-weight: 500;
   border-radius: .4rem 0 0 .4rem;
+}
+
+.quali-entry-content:disabled {
+  border-radius: .4rem;
+}
+
+.quali-select {
+  width: 100%;
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.quali-select>select {
+  width: 100%;
+  height: 2.3rem;
 }

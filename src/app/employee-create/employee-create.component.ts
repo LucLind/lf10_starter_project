@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Employee } from '../Employee';
+import { EmployeeQualificationEntry } from '../Qualification';
 
 @Component({
   selector: 'app-employee-create',
@@ -20,19 +21,23 @@ export class EmployeeCreateComponent {
 
     console.log(body)
 
-    this.http.post<any>('/employeeService', body,  {
+    this.http.post<any>('/employeeService', body, {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
     }).subscribe({
       error: error => {
-          console.error('There was an error!', error);
+        console.error('There was an error!', error);
+      },
+      next: data => {
+        window.location.href = `/employees/${data.id}`;
       }
     })
   }
 
   public employee: Employee
+  public employeeQualifications: EmployeeQualificationEntry[] = [];
 
-  constructor(private http: HttpClient){
+  constructor(private http: HttpClient) {
     this.employee = new Employee();
   }
 }

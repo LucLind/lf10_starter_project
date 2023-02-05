@@ -46,6 +46,7 @@ h2 {
 .employee-card-qualification {
   margin: 0 .7rem 0 .7rem;
   display: flex;
+  flex-wrap: wrap;
   border-radius: 0 0 .4rem .4rem;
 }
 

@@ -18,11 +18,12 @@ export class EmployeeListComponent {
   }
 
   fetchData() {
+    var token = localStorage.getItem('token');
     this.employees$ = this.http.get<Employee[]>('/employeeService', {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
     });
-    
+
   }
 
 }

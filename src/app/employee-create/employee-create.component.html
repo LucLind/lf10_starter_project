@@ -1,5 +1,6 @@
 <app-navigation-header [navBackPath]='"/employees"' [header]="'Mitarbeiter'"></app-navigation-header>
-<app-employee-details [employee]="employee" [disableEdit]="false"></app-employee-details>
+<app-employee-details [employee]="employee" [employeeQualifications]="employeeQualifications"
+    [disableEdit]="false"></app-employee-details>
 <div class="d-flex flex-row-reverse container">
 
     <button class="btn btn-success" (click)="OnSave()">Speichern</button>

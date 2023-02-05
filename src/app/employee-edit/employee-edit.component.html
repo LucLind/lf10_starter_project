@@ -1,10 +1,11 @@
 <app-navigation-header [navBackPath]='"/employees"' [header]="'Mitarbeiter'"></app-navigation-header>
 <div *ngIf="(employee |async)">
-    <app-employee-details [employee]="this.emp" [disableEdit]="this.disableEdit"></app-employee-details>
+    <app-employee-details [employee]="this.emp" [employeeQualifications]="this.employeeQualifications"
+        [disableEdit]="this.disableEdit"></app-employee-details>
 </div>
-<div class="d-flex container">
+<div class="d-flex flex-row-reverse container">
+    <button class="button-confirm" *ngIf="!disableEdit" (click)="OnSave()">Speichern</button>
     <button class="button-primary" *ngIf="disableEdit" (click)="OnEdit()">Bearbeiten</button>
-    <button class="button-primary" *ngIf="!disableEdit" (click)="OnCancel()">Abbrechen</button>
     <div class="mx-auto"></div>
-    <button class="button-confirm" (click)="OnSave()">Speichern</button>
+    <button class="button-primary" *ngIf="!disableEdit" (click)="OnCancel()">Abbrechen</button>
 </div>

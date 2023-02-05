@@ -11,7 +11,13 @@ export class HomeComponent {
   public isLoggedIn = false;
   public userProfile: KeycloakProfile | null = null;
 
-  constructor(private readonly keycloak: KeycloakService) {}
+  constructor(private readonly keycloak: KeycloakService) {
+
+    var t = this.keycloak.getToken();
+    t.then((token) => {
+      localStorage.setItem('token', token || '');
+    });
+  }
 
   public async ngOnInit() {
     this.isLoggedIn = await this.keycloak.isLoggedIn();
@@ -19,6 +25,7 @@ export class HomeComponent {
     if (this.isLoggedIn) {
       this.userProfile = await this.keycloak.loadUserProfile();
     }
+    localStorage.setItem('token', this.keycloak.getKeycloakInstance().token || '');
   }
 
   public login() {
