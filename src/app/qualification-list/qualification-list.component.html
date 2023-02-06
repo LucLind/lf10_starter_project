@@ -5,35 +5,36 @@
   </div>
   <a routerLink="/qualifications/create" routerLinkActive="active">
     <button class="btn btn-primary">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
-        <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-        <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus-fill"
+        viewBox="0 0 16 16">
+        <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+        <path fill-rule="evenodd"
+          d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
       </svg>
     </button>
   </a>
   <ul>
     <div *ngFor="let q of qualifications$ | async">
       <div class="d-flex m-3">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="red" class="bi bi-x-circle-fill" viewBox="0 0 16 16" >
-            <path (click)="OnDelete(q)" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-          </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="red" class="bi bi-x-circle-fill"
+          viewBox="0 0 16 16">
+          <path (click)="OnDelete(q)"
+            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+        </svg>
         <div class="ms-3 p-2 border border-primary">{{q.designation }}</div>
       </div>
     </div>
   </ul>
 
-  
+
 </div>
 
 <div id="confirmDeleteDialog" [className]="dialogClass">
-  <div class="dialog-panel" >
-    <div>Wollen Sie die Qualifikation wirklich löschen?</div>
-    <div class="d-flex">
-      <button class="btn btn-primary" (click)="OnDeleteCancel()">Nein</button>
-      <div class="mx-auto"></div>
-      <button class="btn btn-danger" (click)="OnDeleteConfirm()">Ja</button>
+  <div class="dialog-panel">
+    <div class="dialog-panel-text">Wollen Sie die Qualifikation wirklich löschen?</div>
+    <div class="dialog-input-box">
+      <button class="dialog-input-btn" (click)="OnDeleteCancel()">Nein</button>
+      <button class="dialog-input-btn" (click)="OnDeleteConfirm()">Ja</button>
     </div>
   </div>
 </div>
-
-

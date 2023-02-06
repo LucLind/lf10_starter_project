@@ -21,11 +21,11 @@ h2 {
   margin-top: 1rem;
 }
 
-
-.card-list {
-  opacity: 1;
-  animation: fadeIn 0.75s;
-  animation-fill-mode: backwards;
+.search-box {
+  border-radius: .4rem;
+  border: 2px solid var(--black);
+  box-shadow: 3px 3px 0 0 var(--black);
+  padding-left: .5rem;
 }
 
 @keyframes fadeIn {
@@ -37,6 +37,36 @@ h2 {
   100% {
     opacity: 1;
   }
+}
+
+@keyframes entryLeft {
+  0% {
+    transform: translateX(-200%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes entryRight {
+  0% {
+    transform: translateX(200%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.card-list:nth-child(even) {
+  animation: entryRight 750ms;
+  animation-fill-mode: backwards;
+}
+
+.card-list:nth-child(odd) {
+  animation: entryLeft 750ms;
+  animation-fill-mode: backwards;
 }
 
 .card-list:nth-child(1) {

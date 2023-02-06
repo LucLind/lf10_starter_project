@@ -1,13 +1,27 @@
 .navigation-header {
-  background-color: #fff;
-  border-bottom: 1px solid var(--primary);
-  box-shadow: 0 0 0.5rem #e0e0e0;
-  padding: 0.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary);
+  border-bottom: .2rem solid black;
   margin-bottom: 1rem;
 }
 
 .headline {
   font-size: large;
-  font-weight: bold;
+  font-weight: bolder;
   letter-spacing: 1px;
+  color: white;
+}
+
+.button-header {
+  width: 5rem;
+  height: 3rem;
+  background-color: var(--primary);
+  border: none;
+  color: #fff;
+}
+
+.button-header:hover {
+  background-color: var(--primary-light);
 }

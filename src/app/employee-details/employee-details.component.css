@@ -1,28 +1,43 @@
 .employee-field {
   width: 100%;
   margin-bottom: 0.3rem;
-  background-color: #fff;
-  border-radius: .4rem;
-  border: .1rem solid #e0e0e0;
-  box-shadow: 0 0 0.5rem #bbb;
+  background-color: var(--white);
+  border-radius: .5rem;
   min-height: 5.5rem;
+  box-shadow: 5px 5px 0 var(--black);
+  margin-bottom: 1rem;
 }
 
 .employee-section {
+  border-top: .2rem solid var(--black);
+  border-right: .2rem solid var(--black);
+  border-left: .2rem solid var(--black);
+  border-radius: .5rem .5rem 0 0;
   padding: .5rem;
+
 }
 
 .card-bottom {
-  background-color: #f5f5f5;
-  border-radius: 0 0 .4rem .4rem;
+  background-color: var(--tertiary-light);
+  border: .2rem solid var(--black);
+  border-radius: 0 0 .5rem .5rem;
+  padding: .5rem;
+}
+
+.card-bottom-head {
+  font-weight: 800;
+  color: var(--white);
 }
 
 .input-head {
   color: #666;
+  font-weight: 800;
 }
 
-.divide-line {
-  border-bottom: .1rem solid #e0e0e0;
+.detail-view-field {
+  border-radius: .4rem;
+  border: 2px solid var(--black);
+  padding: .3rem;
 }
 
 .disabled-detail-view-field {
@@ -42,17 +57,13 @@
 }
 
 .detail-view-delete {
-  background: var(--danger);
-  width: 3rem;
-  height: 2.3rem;
-  padding-left: .2rem;
+  padding-top: .2rem;
   color: white;
-  border-radius: 0 .4rem .4rem 0;
   border: none;
+  background: none
 }
 
 .marked-delete>button {
-  background-color: var(--warning) !important;
   text-decoration: line-through;
   color: white;
 }
@@ -79,10 +90,23 @@
   width: 100%;
   border: none;
   display: flex;
+  height: 2.3rem;
+  background-color: var(--primary);
+  border-radius: .4rem;
+  border: 3px solid var(--black);
+  border-radius: .4rem;
+  margin-bottom: .5rem;
+  box-shadow: 3px 3px 0 var(--black);
 }
 
 .quali-entry-content {
+  flex-grow: 1;
+  text-align: left;
+  color: #ffffff;
+  font-weight: bolder;
   border: none;
+  background: none;
+  /* border: none;
   padding-left: 0.5rem;
   display: flex;
   align-items: center;
@@ -91,21 +115,26 @@
   height: 2.3rem;
   background-color: var(--primary);
   color: #ffffff;
-  font-weight: 500;
-  border-radius: .4rem 0 0 .4rem;
+  font-weight: bolder;
+  border-radius: .4rem 0 0 .4rem; */
 }
 
 .quali-entry-content:disabled {
-  border-radius: .4rem;
+  background: none;
 }
 
 .quali-select {
   width: 100%;
   display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
   margin-bottom: 1rem;
 }
 
 .quali-select>select {
   width: 100%;
   height: 2.3rem;
+  border: .2rem solid var(--black);
+  border-radius: .4rem;
+  padding: .3rem;
 }

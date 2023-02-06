@@ -18,17 +18,45 @@
 }
 
 .dialog-panel {
-    border: solid 1px gray;
+    border: .2rem solid var(--black);
     position: absolute;
     top: 20%;
     left: 10%;
     width: 80%;
-    padding: 1em;
     border-radius: 1em;
-    box-shadow: 0 0 10px;
-    background-color: white;
+    box-shadow: 5px 5px 0 var(--black);
+    background-color: var(--white);
     animation: confirm-entrance 0.5s;
     animation-fill-mode: backwards;
+
+}
+
+.dialog-panel-text {
+    padding: 1rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.dialog-input-box {
+    display: flex;
+    justify-content: space-evenly;
+    height: 2rem;
+}
+
+.dialog-input-btn {
+    flex-grow: 1;
+    border: none;
+    background: none;
+    font-weight: 700;
+}
+
+.dialog-input-btn:nth-child(1) {
+    color: var(--tertiary);
+    border-right: .2rem solid var(--black);
+}
+
+.dialog-input-btn:nth-child(2) {
+    color: var(--secondary);
 }
 
 @keyframes confirm-entrance {
