@@ -14,11 +14,14 @@ export class QualificationListComponent {
   qualificationToDelete: Qualification = new Qualification();
   dialogClass :string = "confirm-delete-dialog";
   dialogClassN :string = "confirm-delete-dialog";
+  dialogClassAddQuali : string = "confirm-delete-dialog";
 
   constructor(private http: HttpClient, private router: Router) {
     this.qualifications$ = of([]);
     this.fetchData();
+    this.qualification = new Qualification();
   }
+  public qualification : Qualification;
 
   public fetchData() {
     this.qualifications$ = this.http.get<Qualification[]>('/qualificationsService', {
@@ -54,4 +57,28 @@ export class QualificationListComponent {
   OnDeleteCancel(){
     this.dialogClass = "confirm-delete-dialog";
   }
+
+  OnAddQuali(){
+    this.dialogClassAddQuali = "dialog-visible";
+  }
+  OnSaveConfirm() {
+    let that = this;
+    this.http.post<any>('/qualificationsService', `{"designation": "${this.qualification.designation}"}`, {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+    }).subscribe({
+      error: error => {
+        console.error('There was an error!', error);
+      },
+      complete() {
+        that.router.navigateByUrl('/qualifications');
+        that.fetchData();
+        that.dialogClassAddQuali= "confirm-delete-dialog";
+      },
+    })
+  }
+  OnSaveCancel(){
+    this.dialogClassAddQuali = "confirm-delete-dialog";
+  }
+
 }

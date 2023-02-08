@@ -30,6 +30,49 @@
     animation: confirm-entrance 0.5s;
     animation-fill-mode: backwards;
 }
+.dialog-add-panel {
+  border: solid 1px gray;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 80%;
+  padding: 1em;
+  border-radius: 1em;
+  box-shadow: 0 0 10px;
+  background-color: white;
+  animation: confirm-entrance 0.5s;
+  animation-fill-mode: backwards;
+}
+
+.quali-list {
+  width: 100%;
+  border: none;
+  display: flex;
+}
+
+.quali-content {
+  border: none;
+  padding-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  width: 100%;
+  height: 2.3rem;
+  background-color: var(--primary);
+  color: #ffffff;
+  font-weight: 500;
+  border-radius: .4rem 0 0 .4rem;
+}
+.quali-view-delete {
+  background: var(--danger);
+  width: 3rem;
+  height: 2.3rem;
+  padding-left: .2rem;
+  color: white;
+  border-radius: 0 .4rem .4rem 0;
+  border: none;
+}
+
 
 @keyframes confirm-entrance {
 
