@@ -27,7 +27,14 @@ export class EmployeeListComponent {
 
   search(e: Employee) {
     if (e != undefined) {
-      if (this.searchTerm === '' || e.firstName?.toLowerCase().includes(this.searchTerm.toLowerCase()) || e.lastName?.toLowerCase().includes(this.searchTerm.toLowerCase())) {
+      const combinedFirstLast = e.firstName + " " + e.lastName;
+      const combinedLastFirst = e.lastName + " " + e.firstName;
+
+      if (this.searchTerm === '' ||
+        e.firstName?.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        e.lastName?.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        combinedFirstLast.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        combinedLastFirst.toLowerCase().includes(this.searchTerm.toLowerCase())) {
         return true;
       }
     }
