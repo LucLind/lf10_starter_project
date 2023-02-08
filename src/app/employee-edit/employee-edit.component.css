@@ -1,0 +1,58 @@
+.confirm-delete-dialog {
+    display: none;
+
+}
+
+.delete-success {
+    display: block;
+}
+
+.dialog-visible {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.73);
+}
+
+.dialog-panel {
+    border: solid 1px gray;
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 80%;
+    padding: 1em;
+    border-radius: 1em;
+    box-shadow: 0 0 10px;
+    background-color: white;
+    animation: confirm-entrance 0.5s;
+    animation-fill-mode: backwards;
+}
+
+.dialog-add-panel {
+    border: solid 1px gray;
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 80%;
+    padding: 1em;
+    border-radius: 1em;
+    box-shadow: 0 0 10px;
+    background-color: white;
+    animation: confirm-entrance 0.5s;
+    animation-fill-mode: backwards;
+}
+
+@keyframes confirm-entrance {
+
+    /* move from outside trop of the screen to center */
+    from {
+        top: -100%;
+    }
+
+    to {
+        top: 20%;
+    }
+}

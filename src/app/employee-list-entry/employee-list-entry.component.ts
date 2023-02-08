@@ -11,14 +11,14 @@ import { Qualification } from '../Qualification';
 })
 export class EmployeeListEntryComponent implements OnInit {
   @Input()
-  public employee :Employee = new Employee() ;
-  public qualifications : Qualification[];
+  public employee: Employee = new Employee();
+  public qualifications: Qualification[];
 
   constructor(private http: HttpClient) {
     this.qualifications = new Array<Qualification>;
 
   }
-  ngOnInit(){
+  ngOnInit() {
     this.fetchData();
   }
 
@@ -28,10 +28,10 @@ export class EmployeeListEntryComponent implements OnInit {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
     }).subscribe({
-      next(value:any){
+      next(value: any) {
         that.qualifications = value.skillSet;
       }
     });
-    
+
   }
 }
