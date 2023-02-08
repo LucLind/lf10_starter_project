@@ -2,16 +2,7 @@
 <section class="list-wrapper">
   <div class="head-wrapper">
     <form class="d-flex" role="search">
-
-      <!-- TODO: Search functionality -->
-      <input (change)="$event" class="form-control me-2" type="search" placeholder="Suchen" aria-label="Search">
-      <button class="button-primary" type="submit">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
-          viewBox="0 0 16 16">
-          <path
-            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-        </svg>
-      </button>
+      <app-search (searchTermChanged)="onSearchTermEntered($event)"></app-search>
       <a routerLink="/employees/create" routerLinkActive="active">
         <button class="button-primary">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -23,10 +14,12 @@
         </button>
       </a>
     </form>
-
   </div>
+
   <h2>Alle Mitarbeiter</h2>
-  <div class="card-list" *ngFor="let e of employees$ | async">
-    <app-employee-list-entry class="card-fade-in" [employee]="e"></app-employee-list-entry>
+  <div *ngFor="let e of employeeList">
+    <div class="card-list" *ngIf="search(e)">
+      <app-employee-list-entry class="card-fade-in" [employee]="e"></app-employee-list-entry>
+    </div>
   </div>
 </section>
