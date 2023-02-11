@@ -17,6 +17,31 @@
     border-radius: 2rem;
 }
 
+.button-primary:hover {
+    background-color: var(--primary-light);
+}
+
+.button-primary-circle {
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--primary);
+    border: 2px solid var(--black);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 50%;
+    box-shadow: 3px 3px 0 var(--black);
+}
+
+.button-primary-circle:hover {
+    background-color: var(--primary-light);
+}
+
+.button-primary-circle:active {
+    box-shadow: none;
+    transform: translateY(3px) translateX(3px);
+
+}
+
 .button-secondary {
     background-color: var(--secondary);
     border: none;
