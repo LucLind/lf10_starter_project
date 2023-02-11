@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { Observable, of } from "rxjs";
 import { Employee } from "../Employee";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
@@ -11,10 +11,34 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 export class EmployeeListComponent {
 
   employees$: Observable<Employee[]>;
+  employeeList: Employee[];
+
+  searchTerm: string = '';
 
   constructor(private http: HttpClient) {
     this.employees$ = of([]);
+    this.employeeList = [];
     this.fetchData();
+  }
+
+  onSearchTermEntered(searchTerm: string) {
+    this.searchTerm = searchTerm;
+  }
+
+  search(e: Employee) {
+    if (e != undefined) {
+      const combinedFirstLast = e.firstName + " " + e.lastName;
+      const combinedLastFirst = e.lastName + " " + e.firstName;
+
+      if (this.searchTerm === '' ||
+        e.firstName?.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        e.lastName?.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        combinedFirstLast.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        combinedLastFirst.toLowerCase().includes(this.searchTerm.toLowerCase())) {
+        return true;
+      }
+    }
+    return false;
   }
 
   fetchData() {
@@ -23,7 +47,9 @@ export class EmployeeListComponent {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
     });
-
+    this.employees$.subscribe(list => {
+      this.employeeList = list;
+    })
   }
 
 }

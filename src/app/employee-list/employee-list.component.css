@@ -2,30 +2,35 @@
   padding-bottom: .6rem;
 }
 
-.list-wrapper {
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
-}
-
-.head-wrapper {
+.employee-card-list {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  width: 100%;
+  gap: .5rem 1rem;
 }
 
-.head-wrapper button {
-  margin-left: .5rem;
+.actions-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
-h2 {
-  margin-top: 1rem;
+.actions-box app-search {
+  flex-grow: 1
 }
 
 .search-box {
-  border-radius: .4rem;
-  border: 2px solid var(--black);
-  box-shadow: 3px 3px 0 0 var(--black);
-  padding-left: .5rem;
+  min-height: 1.3rem;
+  flex-grow: 1;
+}
+
+.card-list {
+  opacity: 1;
+  animation: fadeIn 0.75s;
+  animation-fill-mode: backwards;
 }
 
 @keyframes fadeIn {

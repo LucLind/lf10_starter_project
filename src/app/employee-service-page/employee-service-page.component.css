@@ -1,0 +1,33 @@
+.tab-header {
+    display: flex;
+    flex-direction: row;
+    height: 2rem;
+    justify-content: space-around;
+}
+
+.button-tab {
+    background-color: var(--primary);
+    color: var(--primary-text);
+    border: none;
+    width: 100%;
+}
+
+.button-tab-active {
+    border-bottom: 3px solid var(--secondary);
+}
+
+#employee-list {
+    position: absolute;
+}
+
+#qualification-list {
+    position: absolute;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}

@@ -18,6 +18,7 @@ export class EmployeeEditComponent {
   employeeQualifications: EmployeeQualificationEntry[];
   id;
   disableEdit: boolean = true;
+  dialogClass: string = "confirm-delete-dialog";
 
   constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
@@ -94,6 +95,28 @@ export class EmployeeEditComponent {
     });
     this.disableEdit = true;
   }
+
+  OnDelete() {
+    this.dialogClass = "dialog-visible"
+  }
+  OnDeleteConfirm() {
+    this.http.delete<any>(`/employeeService/${this.id}`, {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+    }).subscribe({
+      error: error => {
+        console.error('There was an error!', error);
+      },
+      complete: () => {
+        this.dialogClass = "confirm-delete-dialog";
+        window.location.href = "/employees";
+      }
+    });
+  }
+  OnDeleteCancel() {
+    this.dialogClass = "confirm-delete-dialog";
+  }
+
 
   OnCancel() {
     window.location.reload();

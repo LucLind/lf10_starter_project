@@ -1,0 +1,11 @@
+<app-navigation-header [navBackPath]="'/'" [header]="'Mitarbeiter Service'"></app-navigation-header>
+<div class="tab-header header-end">
+    <button id="employee-tab-button" class="button-tab button-tab-active"
+        (click)="OnTabClicked($event, 'employee')">Mitarbeiter</button>
+    <button id="qualification-tab-button" class="button-tab"
+        (click)="OnTabClicked($event, 'qualification')">Qualifikationen</button>
+</div>
+<div class="main-view container">
+    <app-employee-list id="employee-list" class="visible container"></app-employee-list>
+    <app-qualification-list id="qualification-list" class="hidden container"></app-qualification-list>
+</div>

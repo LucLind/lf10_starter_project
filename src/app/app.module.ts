@@ -16,6 +16,8 @@ import { HomeComponent } from './home/home.component';
 import { QualificationCreateComponent } from './qualification-create/qualification-create.component';
 import { EmployeeListEntryComponent } from './employee-list-entry/employee-list-entry.component';
 import { TokenInterceptor } from './token-interceptor';
+import { SearchComponent } from './search/search.component';
+import { EmployeeServicePageComponent } from './employee-service-page/employee-service-page.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -44,7 +46,9 @@ function initializeKeycloak(keycloak: KeycloakService) {
     EmployeeCreateComponent,
     HomeComponent,
     QualificationCreateComponent,
-    EmployeeListEntryComponent
+    EmployeeListEntryComponent,
+    SearchComponent,
+    EmployeeServicePageComponent
   ],
   imports: [
     BrowserModule,
@@ -60,11 +64,11 @@ function initializeKeycloak(keycloak: KeycloakService) {
       multi: true,
       deps: [KeycloakService]
     },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true
-    }
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: TokenInterceptor,
+    //   multi: true
+    // }
   ],
   bootstrap: [AppComponent]
 })

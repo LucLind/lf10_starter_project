@@ -2,36 +2,36 @@
   <div class="employee-field">
     <div class="employee-section">
 
-      <div class="p-2 w-100">
+      <div class="p-2">
         <div class="input-head">Vorname</div>
-        <input *ngIf="!disableEdit" class="w-100 detail-view-field" [(ngModel)]="employee.firstName">
+        <input *ngIf="!disableEdit" class="text-box" [(ngModel)]="employee.firstName">
         <input *ngIf="disableEdit" class="disabled-detail-view-field" [(ngModel)]="employee.firstName" disabled>
       </div>
       <div class="p-2">
         <div class="input-head">Nachname</div>
-        <input *ngIf="!disableEdit" class="w-100 detail-view-field" [(ngModel)]="employee.lastName">
+        <input *ngIf="!disableEdit" class="text-box" [(ngModel)]="employee.lastName">
         <input *ngIf="disableEdit" class="disabled-detail-view-field" [(ngModel)]="employee.lastName" disabled>
       </div>
       <div class="p-2">
         <div class="input-head">Straße</div>
-        <input *ngIf="!disableEdit" class="w-100 detail-view-field" [(ngModel)]="employee.street">
+        <input *ngIf="!disableEdit" class="text-box" [(ngModel)]="employee.street">
         <input *ngIf="disableEdit" class="disabled-detail-view-field" [(ngModel)]="employee.street" disabled>
       </div>
       <div class="d-flex">
         <div class="p-2 w-25">
           <div class="input-head">PLZ</div>
-          <input *ngIf="!disableEdit" class="w-100 detail-view-field" [(ngModel)]="employee.postcode">
+          <input *ngIf="!disableEdit" class="text-box" [(ngModel)]="employee.postcode">
           <input *ngIf="disableEdit" class="disabled-detail-view-field" [(ngModel)]="employee.postcode" disabled>
         </div>
         <div class="p-2 w-75">
           <div class="input-head">Ort</div>
-          <input *ngIf="!disableEdit" class="w-100 detail-view-field" [(ngModel)]="employee.city">
+          <input *ngIf="!disableEdit" class="text-box" [(ngModel)]="employee.city">
           <input *ngIf="disableEdit" class="disabled-detail-view-field" [(ngModel)]="employee.city" disabled>
         </div>
       </div>
       <div class="p-2">
         <div class="input-head">Telefon</div>
-        <input *ngIf="!disableEdit" class="w-100 detail-view-field" [(ngModel)]="employee.phone">
+        <input *ngIf="!disableEdit" class="text-box" [(ngModel)]="employee.phone">
         <input *ngIf="disableEdit" class="disabled-detail-view-field" [(ngModel)]="employee.phone" disabled>
       </div>
     </div>
