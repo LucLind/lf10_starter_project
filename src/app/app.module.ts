@@ -17,6 +17,7 @@ import { QualificationCreateComponent } from './qualification-create/qualificati
 import { EmployeeListEntryComponent } from './employee-list-entry/employee-list-entry.component';
 import { TokenInterceptor } from './token-interceptor';
 import { SearchComponent } from './search/search.component';
+import { EmployeeServicePageComponent } from './employee-service-page/employee-service-page.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -46,7 +47,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     HomeComponent,
     QualificationCreateComponent,
     EmployeeListEntryComponent,
-    SearchComponent
+    SearchComponent,
+    EmployeeServicePageComponent
   ],
   imports: [
     BrowserModule,

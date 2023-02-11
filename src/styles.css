@@ -3,6 +3,11 @@
     background-color: #efefef
 }
 
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
 .button-primary {
     background-color: var(--primary);
     border: none;
@@ -35,6 +40,26 @@
     border-radius: 0.3rem;
 }
 
+.text-box {
+    border: 1px solid #ccc;
+    border-radius: 0.3rem;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.header-end {
+    margin-bottom: 1rem;
+}
+
+body {
+    font-family: Whyte, sans-serif !important;
+    margin: 0;
+}
+
+button {
+    font-size: medium;
+}
+
 :root {
     --primary: #109cec;
     --secondary: #6c757d;
@@ -46,17 +71,6 @@
     --light: #f8f9fa;
     --dark: #212529;
     --white: #fff;
-    --gray: #6c757d;
-    --gray-dark: #343a40;
-    --primary-rgb: 13, 110, 253;
-    --secondary-rgb: 108, 117, 125;
-    --success-rgb: 25, 135, 84;
-    --info-rgb: 13, 202, 240;
-    --warning-rgb: 255, 193, 7;
-    --danger-rgb: 220, 53, 69;
-    --light-rgb: 248, 249, 250;
-    --dark-rgb: 33, 37, 41;
-    --white-rgb: 255, 255, 255;
-    --gray-rgb: 108, 117, 125;
-    --gray-dark-rgb: 52, 58, 64;
+
+
 }

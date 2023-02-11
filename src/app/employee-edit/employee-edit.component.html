@@ -1,4 +1,4 @@
-<app-navigation-header [navBackPath]='"/employees"' [header]="'Mitarbeiter'"></app-navigation-header>
+<app-navigation-header [navBackPath]='"/employeeservice"' [header]="'Mitarbeiter'"></app-navigation-header>
 <div *ngIf="(employee |async)">
     <app-employee-details [employee]="this.emp" [employeeQualifications]="this.employeeQualifications"
         [disableEdit]="this.disableEdit"></app-employee-details>
