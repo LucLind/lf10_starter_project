@@ -10,10 +10,11 @@
 
 .button-primary {
     background-color: var(--primary);
-    border: none;
-    color: #fff;
+    border: .2rem solid var(--black);
+    color: var(--white);
+    font-weight: bold;
     padding: 0.5rem 1rem;
-    border-radius: 0.3rem;
+    border-radius: 2rem;
 }
 
 .button-secondary {
@@ -41,14 +42,41 @@
 }
 
 .text-box {
-    border: 1px solid #ccc;
+    border: 2px solid var(--black);
     border-radius: 0.3rem;
-    padding: 0.5rem;
+    box-shadow: 3px 3px 0 var(--black);
+    padding: .5rem;
     width: 100%;
+    font-size: medium;
 }
 
 .header-end {
     margin-bottom: 1rem;
+    border-bottom: 3px solid var(--black);
+}
+
+.p-2 {
+    padding: 0.5rem;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.w-75 {
+    width: 75%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-25 {
+    width: 25%;
+}
+
+.d-flex {
+    display: flex;
 }
 
 body {
@@ -60,17 +88,26 @@ button {
     font-size: medium;
 }
 
+:focus-visible {
+    outline: none;
+}
+
 :root {
-    --primary: #109cec;
-    --secondary: #6c757d;
-    --success: #198754;
-    --info: #0dcaf0;
-    --warning: #ffc107;
-    --danger: #dc3545;
-    --danger-hover: #c82333;
-    --light: #f8f9fa;
-    --dark: #212529;
-    --white: #fff;
+    --secondary: #FF6B35;
+    --secondary-light: #F7C59F;
+    --secondary-text: var(--white);
 
 
+    --primary: #004E89;
+    --primary-light: #1A659E;
+    --primary-text: var(--white);
+
+    --black: #011627;
+    --white: #FDFFFC;
+
+
+}
+
+* {
+    box-sizing: border-box;
 }

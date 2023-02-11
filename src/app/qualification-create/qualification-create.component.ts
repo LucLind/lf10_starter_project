@@ -10,25 +10,25 @@ import { Qualification } from '../Qualification';
 })
 export class QualificationCreateComponent {
 
-  
+
   OnSave() {
     let that = this;
-    this.http.post<any>('/qualificationsService', `{"designation": "${this.qualification.designation}"}`,  {
+    this.http.post<any>('/qualificationsService', `{"designation": "${this.qualification.designation}"}`, {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
     }).subscribe({
       error: error => {
-          console.error('There was an error!', error);
+        console.error('There was an error!', error);
       },
       complete() {
-        that.router.navigateByUrl('/qualifications');
+        that.router.navigateByUrl('/employeeservice');
       },
     })
-    
-  }
-  public qualification:Qualification;
 
-  constructor(private http: HttpClient, public router:Router){
+  }
+  public qualification: Qualification;
+
+  constructor(private http: HttpClient, public router: Router) {
     this.qualification = new Qualification();
   }
 }

@@ -1,13 +1,13 @@
 .navigation-header {
-  background-color: #fff;
-  box-shadow: 0 0 0.5rem #e0e0e0;
+  background-color: var(--primary);
+  color: var(--primary-text);
 }
 
 .navigation-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
 }
 
 .headline {

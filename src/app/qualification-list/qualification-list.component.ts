@@ -12,16 +12,16 @@ import { Qualification } from '../Qualification';
 export class QualificationListComponent {
   qualifications$: Observable<Qualification[]>;
   qualificationToDelete: Qualification = new Qualification();
-  dialogClass :string = "confirm-delete-dialog";
-  dialogClassN :string = "confirm-delete-dialog";
-  dialogClassAddQuali : string = "confirm-delete-dialog";
+  dialogClass: string = "confirm-delete-dialog";
+  dialogClassN: string = "confirm-delete-dialog";
+  dialogClassAddQuali: string = "confirm-delete-dialog";
 
   constructor(private http: HttpClient, private router: Router) {
     this.qualifications$ = of([]);
     this.fetchData();
     this.qualification = new Qualification();
   }
-  public qualification : Qualification;
+  public qualification: Qualification;
 
   public fetchData() {
     this.qualifications$ = this.http.get<Qualification[]>('/qualificationsService', {
@@ -30,13 +30,13 @@ export class QualificationListComponent {
     });
   }
 
-  OnDelete(quali:Qualification){
+  OnDelete(quali: Qualification) {
     this.qualificationToDelete = quali;
     this.dialogClass = "dialog-visible"
 
     //window.location.reload(
   }
-  OnDeleteConfirm(){
+  OnDeleteConfirm() {
     let that = this;
     console.log(this.qualificationToDelete);
     this.http.delete<any>('/qualificationsService', {
@@ -45,20 +45,20 @@ export class QualificationListComponent {
       body: this.qualificationToDelete
     }).subscribe({
       error: error => {
-          console.error('There was an error!', error);
+        console.error('There was an error!', error);
       },
-      complete(){
+      complete() {
         that.fetchData();
         that.dialogClassN = "delete-success";
         that.dialogClass = "confirm-delete-dialog";
       }
     });
   }
-  OnDeleteCancel(){
+  OnDeleteCancel() {
     this.dialogClass = "confirm-delete-dialog";
   }
 
-  OnAddQuali(){
+  OnAddQuali() {
     this.dialogClassAddQuali = "dialog-visible";
   }
   OnSaveConfirm() {
@@ -71,13 +71,12 @@ export class QualificationListComponent {
         console.error('There was an error!', error);
       },
       complete() {
-        that.router.navigateByUrl('/qualifications');
         that.fetchData();
-        that.dialogClassAddQuali= "confirm-delete-dialog";
+        that.dialogClassAddQuali = "confirm-delete-dialog";
       },
     })
   }
-  OnSaveCancel(){
+  OnSaveCancel() {
     this.dialogClassAddQuali = "confirm-delete-dialog";
   }
 

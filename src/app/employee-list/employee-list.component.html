@@ -13,9 +13,12 @@
     </a>
   </div>
 
-  <div *ngFor="let e of employeeList">
-    <div class="card-list" *ngIf="search(e)">
-      <app-employee-list-entry class="card-fade-in" [employee]="e"></app-employee-list-entry>
+  <div class="employee-card-list">
+
+    <div *ngFor="let e of employeeList">
+      <div class="card-list" *ngIf="search(e)">
+        <app-employee-list-entry class="card-fade-in" [employee]="e"></app-employee-list-entry>
+      </div>
     </div>
   </div>
 </section>

@@ -6,13 +6,14 @@
 }
 
 .button-tab {
-    background-color: var(--white);
+    background-color: var(--primary);
+    color: var(--primary-text);
     border: none;
     width: 100%;
 }
 
 .button-tab-active {
-    border-bottom: 1px solid var(--primary);
+    border-bottom: 3px solid var(--secondary);
 }
 
 #employee-list {
