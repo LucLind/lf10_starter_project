@@ -23,6 +23,8 @@ export class QualificationListComponent {
   confirmDeleteDialog: HTMLDialogElement | null = null;
   confirmAddDialog: HTMLDialogElement | null = null;
 
+  searchTerm: string = "";
+
   constructor(private http: HttpClient, private router: Router) {
     this.qualification = new Qualification();
   }
@@ -135,4 +137,14 @@ export class QualificationListComponent {
     this.confirmAddDialog?.close();
   }
 
+  onSearchTermEntered(searchTerm: string) {
+    this.searchTerm = searchTerm;
+  }
+  search(q: Qualification) {
+    if (this.searchTerm === '' ||
+      q.designation?.toLowerCase().includes(this.searchTerm.toLowerCase())) {
+      return true;
+    }
+    return false;
+  }
 }
