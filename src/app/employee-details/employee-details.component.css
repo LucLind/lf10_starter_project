@@ -18,7 +18,7 @@
 }
 
 .card-bottom {
-  background-color: var(--tertiary-light);
+  background-color: var(--secondary-light);
   border: .2rem solid var(--black);
   border-radius: 0 0 .5rem .5rem;
   padding: .5rem;
@@ -26,7 +26,7 @@
 
 .card-bottom-head {
   font-weight: 800;
-  color: var(--white);
+  color: var(--secondary-text);
 }
 
 .input-head {
@@ -69,7 +69,7 @@
 }
 
 .detail-view-delete:hover {
-  background: var(--danger-hover);
+  background: var(--warning);
 }
 
 .detail-view-quali {

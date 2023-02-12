@@ -13,13 +13,22 @@
     margin: 0 auto;
 }
 
-.button-primary {
-    background-color: var(--primary);
+.button {
     border: .2rem solid var(--black);
-    color: var(--white);
     font-weight: bold;
     padding: 0.5rem 1rem;
     border-radius: 2rem;
+    box-shadow: 3px 3px 0 var(--black);
+}
+
+.button:active {
+    box-shadow: none;
+    transform: translateY(3px) translateX(3px);
+}
+
+.button-primary {
+    background-color: var(--primary);
+    color: var(--primary-text);
 }
 
 .button-primary:hover {
@@ -31,8 +40,7 @@
     height: 3rem;
     background-color: var(--primary);
     border: 2px solid var(--black);
-    color: var(--white);
-    padding: 0.5rem 1rem;
+    color: var(--primary-text);
     border-radius: 50%;
     box-shadow: 3px 3px 0 var(--black);
 }
@@ -49,27 +57,24 @@
 
 .button-secondary {
     background-color: var(--secondary);
-    border: none;
-    color: var(--white);
-    padding: 0.5rem 1rem;
-    border-radius: 50%;
+    color: var(--secondary-text);
 }
 
 .button-confirm {
-    background-color: var(--tertiary);
-    border: .2rem solid var(--black);
+    background-color: var(--success);
     color: var(--white);
-    font-weight: bold;
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
 }
 
 .button-delete {
     background-color: var(--danger);
-    border: none;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 0.3rem;
+    color: var(--white);
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
 }
 
 .text-box {
@@ -125,13 +130,17 @@ button {
 
 :root {
     --secondary: #FF6B35;
-    --secondary-light: #F7C59F;
+    --secondary-light: #ff9b4f;
     --secondary-text: var(--white);
 
 
     --primary: #004E89;
-    --primary-light: #1A659E;
+    --primary-light: #107da1;
     --primary-text: var(--white);
+
+    --success: #0EAD69;
+    --warning: #FFD23F;
+    --danger: #FF3B30;
 
     --black: #011627;
     --white: #FDFFFC;

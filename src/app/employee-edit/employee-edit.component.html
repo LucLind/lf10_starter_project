@@ -4,12 +4,12 @@
     <app-employee-details [employee]="this.emp" [employeeQualifications]="this.employeeQualifications"
         [disableEdit]="this.disableEdit"></app-employee-details>
 </div>
-<div class="d-flex flex-row-reverse container">
-    <button class="button-confirm" *ngIf="!disableEdit" (click)="OnSave()">Speichern</button>
-    <button class="button-delete" *ngIf="!disableEdit" (click)="OnDelete()">Löschen</button>
-    <button class="button-primary" *ngIf="disableEdit" (click)="OnEdit()">Bearbeiten</button>
-    <div class="mx-auto"></div>
-    <button class="button-primary" *ngIf="!disableEdit" (click)="OnCancel()">Abbrechen</button>
+<div class="button-row container">
+    <button class="button button-confirm" *ngIf="!disableEdit" (click)="OnSave()">Speichern</button>
+    <button class="button button-delete" *ngIf="!disableEdit" (click)="OnDelete()">Löschen</button>
+    <button class="button button-primary" *ngIf="!disableEdit" (click)="OnCancel()">Abbrechen</button>
+
+    <button class="button button-primary" *ngIf="disableEdit" (click)="OnEdit()">Bearbeiten</button>
 </div>
 
 

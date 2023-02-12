@@ -6,7 +6,18 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: flex-start;
   gap: .5rem 1rem;
+}
+
+.employee-card-list>div {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.employee-card-list::after {
+  content: "";
+  flex: 1;
 }
 
 .actions-box {
