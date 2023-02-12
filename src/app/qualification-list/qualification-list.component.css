@@ -6,7 +6,11 @@
     width: 100%;
     border: none;
     display: flex;
-    margin-bottom: 1rem;
+    gap: .2rem;
+}
+
+.flex-entry {
+    flex-grow: 1;
 }
 
 .quali-content {

@@ -51,76 +51,14 @@
   background-color: #fff;
 }
 
-.disabled-detail-view-field-badge {
-  background-color: var(--primary);
-  color: #ffffff;
-}
-
-.detail-view-delete {
-  padding-top: .2rem;
-  color: white;
-  border: none;
-  background: none
-}
-
-.marked-delete>button {
-  text-decoration: line-through;
-  color: white;
-}
-
-.detail-view-delete:hover {
-  background: var(--warning);
-}
-
-.detail-view-quali {
-  margin: auto;
-  width: 100%;
-  height: 2.3rem;
-  color: blue;
-  border-radius: 2rem;
-}
-
-.quali-wrap {
+.quali-list {
   display: flex;
-  max-width: 80%;
-  border-radius: .4rem;
+  flex-direction: column;
+  gap: .2rem;
 }
 
-.quali-entry {
-  width: 100%;
-  border: none;
-  display: flex;
-  height: 2.3rem;
-  background-color: var(--primary);
-  border-radius: .4rem;
-  border: 3px solid var(--black);
-  border-radius: .4rem;
-  margin-bottom: .5rem;
-  box-shadow: 3px 3px 0 var(--black);
-}
-
-.quali-entry-content {
+.flex-entry {
   flex-grow: 1;
-  text-align: left;
-  color: #ffffff;
-  font-weight: bolder;
-  border: none;
-  background: none;
-  /* border: none;
-  padding-left: 0.5rem;
-  display: flex;
-  align-items: center;
-  vertical-align: middle;
-  width: 100%;
-  height: 2.3rem;
-  background-color: var(--primary);
-  color: #ffffff;
-  font-weight: bolder;
-  border-radius: .4rem 0 0 .4rem; */
-}
-
-.quali-entry-content:disabled {
-  background: none;
 }
 
 .quali-select {

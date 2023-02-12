@@ -47,16 +47,7 @@ export class EmployeeDetailsComponent {
     this.selectedQualification = new Qualification();
     this.selectedQualification.designation = event.target.value;
   }
-  public MarkDelete(event: any, quali: EmployeeQualificationEntry) {
-    quali.removeFlag = !quali.removeFlag;
-    if (quali.removeFlag) {
-      event.target.parentElement.parentElement.classList.add('marked-delete');
 
-    }
-    else {
-      event.target.parentElement.parentElement.classList.remove('marked-delete');
-    }
-  }
 
 }
 

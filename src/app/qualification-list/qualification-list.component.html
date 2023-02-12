@@ -7,8 +7,10 @@
   </button>
   <app-search class="search-box"></app-search>
 </div>
-<div class="d-flex m-2" *ngFor="let q of qualifications$">
-  <div class="quali-list">
+<div class="quali-list" *ngFor="let q of qualifications$">
+  <app-qualification-entry class="flex-entry" [quali]="q" (delete)="OnDelete(q)"></app-qualification-entry>
+
+  <!-- <div class="quali-list">
     <div class="quali-content">
       {{q.designation}}
     </div>
@@ -21,7 +23,7 @@
         </svg>
       </button>
     </div>
-  </div>
+  </div> -->
 </div>
 
 

@@ -1,0 +1,59 @@
+.quali-entry-delete {
+    padding-top: .2rem;
+    color: var(--white);
+    border: none;
+    background-color: var(--danger);
+    border-radius: 0 .3rem .3rem 0;
+}
+
+.quali-entry.marked-delete .quali-entry-content {
+    text-decoration: line-through;
+    background-color: var(--disabled);
+    color: var(--disabled-text) !important;
+}
+
+.marked-delete .quali-entry-delete {
+    background-color: var(--success);
+}
+
+.quali-entry {
+    width: 100%;
+    border: none;
+    display: flex;
+    height: 2.3rem;
+    background-color: var(--primary);
+    border-radius: .4rem;
+    border: 3px solid var(--black);
+    border-radius: .4rem;
+    margin-bottom: .5rem;
+    box-shadow: 3px 3px 0 var(--black);
+}
+
+.quali-entry-content {
+    flex-grow: 1;
+    text-align: left;
+    color: #ffffff;
+    font-weight: bolder;
+    border: none;
+    background: none;
+}
+
+.quali-entry-content:disabled {
+    background: none;
+}
+
+.quali-select {
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    margin-bottom: 1rem;
+}
+
+.quali-select>select {
+    width: 100%;
+    height: 2.3rem;
+    border: .2rem solid var(--black);
+    border-radius: .4rem;
+    padding: .3rem;
+}
