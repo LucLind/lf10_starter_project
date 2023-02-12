@@ -13,13 +13,10 @@
 </div>
 
 
-<div id="confirmDeleteDialog" [className]="dialogClass">
-    <div class="dialog-panel">
-        <div>Möchten Sie die Mitarbeiter:in wirklich entfernen?</div>
-        <div class="d-flex">
-            <button class="btn btn-primary" (click)="OnDeleteCancel()">Nein</button>
-            <div class="mx-auto"></div>
-            <button class="btn btn-danger" (click)="OnDeleteConfirm()">Ja</button>
-        </div>
+<dialog id="confirmDeleteDialog" class="dialog-panel">
+    <div class="dialog-text">Mitarbeiter:in wirklich entfernen?</div>
+    <div class="dialog-button-row">
+        <button class="dialog-button-cancel" (click)="OnDeleteCancel()">Nein</button>
+        <button class="dialog-button-confirm" (click)="OnDeleteConfirm()">Ja</button>
     </div>
-</div>
+</dialog>

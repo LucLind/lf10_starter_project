@@ -16,12 +16,20 @@ export class QualificationListComponent {
   dialogClassN: string = "confirm-delete-dialog";
   dialogClassAddQuali: string = "confirm-delete-dialog";
 
+  confirmDeleteDialog: HTMLDialogElement | null = null;
+  confirmAddDialog: HTMLDialogElement | null = null;
+
   constructor(private http: HttpClient, private router: Router) {
     this.qualifications$ = of([]);
     this.fetchData();
     this.qualification = new Qualification();
   }
   public qualification: Qualification;
+
+  ngOnInit(): void {
+    this.confirmDeleteDialog = document.getElementById("confirmDeleteDialog") as HTMLDialogElement;
+    this.confirmAddDialog = document.getElementById("confirmAddDialog") as HTMLDialogElement;
+  }
 
   public fetchData() {
     this.qualifications$ = this.http.get<Qualification[]>('/qualificationsService', {
@@ -32,9 +40,7 @@ export class QualificationListComponent {
 
   OnDelete(quali: Qualification) {
     this.qualificationToDelete = quali;
-    this.dialogClass = "dialog-visible"
-
-    //window.location.reload(
+    this.confirmDeleteDialog?.showModal();
   }
   OnDeleteConfirm() {
     let that = this;
@@ -50,16 +56,16 @@ export class QualificationListComponent {
       complete() {
         that.fetchData();
         that.dialogClassN = "delete-success";
-        that.dialogClass = "confirm-delete-dialog";
+        that.confirmDeleteDialog?.close();
       }
     });
   }
   OnDeleteCancel() {
-    this.dialogClass = "confirm-delete-dialog";
+    this.confirmDeleteDialog?.close();
   }
 
   OnAddQuali() {
-    this.dialogClassAddQuali = "dialog-visible";
+    this.confirmAddDialog?.showModal();
   }
   OnSaveConfirm() {
     let that = this;
@@ -72,12 +78,12 @@ export class QualificationListComponent {
       },
       complete() {
         that.fetchData();
-        that.dialogClassAddQuali = "confirm-delete-dialog";
+        that.confirmAddDialog?.close();
       },
     })
   }
   OnSaveCancel() {
-    this.dialogClassAddQuali = "confirm-delete-dialog";
+    this.confirmAddDialog?.close();
   }
 
 }

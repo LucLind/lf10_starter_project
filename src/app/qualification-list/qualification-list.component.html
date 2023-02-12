@@ -1,61 +1,45 @@
-<div class="container">
-  <div id="notificationDialog" [className]="dialogClassN">
-    <p class="text-success">Qualifikation wurde gelöscht</p>
-  </div>
-  <div>
-    <button class="button-primary-circle" (click)="OnAddQuali()">
-      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus"
-        viewBox="0 0 16 16">
-        <path
-          d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-      </svg>
-    </button>
-  </div>
-  <ul>
-    <div class="d-flex m-2" *ngFor="let q of qualifications$ | async">
-      <div class="quali-list">
-        <div class="quali-content">
-          {{q.designation}}
-        </div>
-        <div>
-          <button class="quali-view-delete" (click)="OnDelete(q)">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
-              class="bi bi-x-circle-fill delete-svg" viewBox="0 0 16 16">
-              <path
-                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </ul>
-
-
+<div class="actions-box">
+  <app-search></app-search>
+  <button class="button-primary-circle" (click)="OnAddQuali()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus"
+      viewBox="0 0 16 16">
+      <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+    </svg>
+  </button>
 </div>
-
-<div id="confirmDeleteDialog" [className]="dialogClass">
-  <div class="dialog-panel">
-    <div>Wollen Sie die Qualifikation wirklich löschen?</div>
-    <div class="d-flex">
-      <button class="btn btn-primary" (click)="OnDeleteCancel()">Nein</button>
-      <div class="mx-auto"></div>
-      <button class="btn btn-danger" (click)="OnDeleteConfirm()">Ja</button>
+<div class="d-flex m-2" *ngFor="let q of qualifications$ | async">
+  <div class="quali-list">
+    <div class="quali-content">
+      {{q.designation}}
+    </div>
+    <div>
+      <button class="quali-view-delete" (click)="OnDelete(q)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+          class="bi bi-x-circle-fill delete-svg" viewBox="0 0 16 16">
+          <path
+            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+        </svg>
+      </button>
     </div>
   </div>
 </div>
 
-<div id="confirmAddDialog" [className]="dialogClassAddQuali">
-  <div class="dialog-add-panel">
-    <div>Neue Qualifikation hinzufügen:</div>
-    <div class="d-flex">
-      <input class="w-100" [(ngModel)]="qualification.designation">
-    </div>
-    <div class="d-flex">
-      <div class="d-flex flex-row-reverse container">
-        <button class="btn btn-primary" (click)="OnSaveCancel()">Abbrechen</button>
-        <div class="mx-auto"></div>
-        <button class="btn btn-success" (click)="OnSaveConfirm()">Speichern</button>
-      </div>
-    </div>
+
+
+<dialog id="confirmDeleteDialog" class="dialog-panel">
+  <div class="dialog-text">Qualifikation wirklich entfernen?</div>
+  <div class="dialog-button-row">
+    <button class="dialog-button-cancel" (click)="OnDeleteCancel()">Nein</button>
+    <button class="dialog-button-confirm" (click)="OnDeleteConfirm()">Ja</button>
   </div>
-</div>
+</dialog>
+
+<dialog id="confirmAddDialog" class="dialog-panel">
+  <div class="dialog-text">Neue Qualifikation hinzufügen:
+    <input class="text-box" [(ngModel)]="qualification.designation">
+  </div>
+  <div class="dialog-button-row">
+    <button class="dialog-button-cancel" (click)="OnSaveCancel()">Abbrechen</button>
+    <button class="dialog-button-confirm" (click)="OnSaveConfirm()">Speichern</button>
+  </div>
+</dialog>

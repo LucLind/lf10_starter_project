@@ -18,7 +18,7 @@ export class EmployeeEditComponent {
   employeeQualifications: EmployeeQualificationEntry[];
   id;
   disableEdit: boolean = true;
-  dialogClass: string = "confirm-delete-dialog";
+  dialogElement: HTMLDialogElement | null = null;
 
   constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
@@ -27,6 +27,10 @@ export class EmployeeEditComponent {
     this.emp = new Employee();
     this.employeeQualifications = [];
     this.fetchData();
+  }
+
+  ngOnInit(): void {
+    this.dialogElement = document.getElementById("confirmDeleteDialog") as HTMLDialogElement;
   }
 
   fetchData() {
@@ -97,7 +101,10 @@ export class EmployeeEditComponent {
   }
 
   OnDelete() {
-    this.dialogClass = "dialog-visible"
+    this.dialogElement?.showModal();
+  }
+  OnDeleteCancel() {
+    this.dialogElement?.close();
   }
   OnDeleteConfirm() {
     this.http.delete<any>(`/employeeService/${this.id}`, {
@@ -108,15 +115,10 @@ export class EmployeeEditComponent {
         console.error('There was an error!', error);
       },
       complete: () => {
-        this.dialogClass = "confirm-delete-dialog";
         window.location.href = "/employees";
       }
     });
   }
-  OnDeleteCancel() {
-    this.dialogClass = "confirm-delete-dialog";
-  }
-
 
   OnCancel() {
     window.location.reload();

@@ -1,115 +1,34 @@
-.confirm-delete-dialog {
-    display: none;
-
-}
-
 .delete-success {
     display: block;
 }
 
-.dialog-visible {
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.73);
-}
-
-.dialog-panel {
-    border: .2rem solid var(--black);
-    position: absolute;
-    top: 20%;
-    left: 10%;
-    width: 80%;
-    border-radius: 1em;
-    box-shadow: 5px 5px 0 var(--black);
-    background-color: var(--white);
-    animation: confirm-entrance 0.5s;
-    animation-fill-mode: backwards;
-
-}
-
-.dialog-panel-text {
-    padding: 1rem;
-    font-weight: 700;
-    text-align: center;
-}
-
-.dialog-input-box {
-    display: flex;
-    justify-content: space-evenly;
-    height: 2rem;
-}
-
-.dialog-input-btn {
-    flex-grow: 1;
-    border: none;
-    background: none;
-    font-weight: 700;
-}
-
-.dialog-input-btn:nth-child(1) {
-    color: var(--tertiary);
-    border-right: .2rem solid var(--black);
-}
-
-.dialog-input-btn:nth-child(2) {
-    color: var(--secondary);
-}
-.dialog-add-panel {
-  border: solid 1px gray;
-  position: absolute;
-  top: 20%;
-  left: 10%;
-  width: 80%;
-  padding: 1em;
-  border-radius: 1em;
-  box-shadow: 0 0 10px;
-  background-color: white;
-  animation: confirm-entrance 0.5s;
-  animation-fill-mode: backwards;
-}
-
 .quali-list {
-  width: 100%;
-  border: none;
-  display: flex;
+    width: 100%;
+    border: none;
+    display: flex;
+    margin-bottom: 1rem;
 }
 
 .quali-content {
-  border: none;
-  padding-left: 0.5rem;
-  display: flex;
-  align-items: center;
-  vertical-align: middle;
-  width: 100%;
-  height: 2.3rem;
-  background-color: var(--primary);
-  color: #ffffff;
-  font-weight: 500;
-  border-radius: .4rem 0 0 .4rem;
+    border: none;
+    padding-left: 0.5rem;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    width: 100%;
+    height: 2.3rem;
+    background-color: var(--primary);
+    color: #ffffff;
+    font-weight: 500;
+    border-radius: .4rem 0 0 .4rem;
 }
+
 .quali-view-delete {
-  background: var(--danger);
-  width: 3rem;
-  height: 2.3rem;
-  padding-left: .2rem;
-  color: white;
-  border-radius: 0 .4rem .4rem 0;
-  border: none;
-}
-
-
-@keyframes confirm-entrance {
-
-    /* move from outside trop of the screen to center */
-    from {
-        top: -100%;
-    }
-
-    to {
-        top: 20%;
-    }
+    background: var(--danger);
+    width: 3rem;
+    height: 2.3rem;
+    padding-left: .2rem;
+    color: white;
+    border-radius: 0 .4rem .4rem 0;
+    border: none;
 }

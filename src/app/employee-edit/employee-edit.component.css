@@ -1,48 +1,52 @@
-.confirm-delete-dialog {
-    display: none;
-
-}
-
-.delete-success {
-    display: block;
-}
-
-.dialog-visible {
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.73);
-}
-
 .dialog-panel {
-    border: solid 1px gray;
+    border: 2px solid var(--black);
+    box-shadow: 5px 5px 0 var(--black);
     position: absolute;
-    top: 20%;
-    left: 10%;
     width: 80%;
-    padding: 1em;
+    max-width: 500px;
+    padding: 0;
     border-radius: 1em;
-    box-shadow: 0 0 10px;
     background-color: white;
     animation: confirm-entrance 0.5s;
     animation-fill-mode: backwards;
 }
 
-.dialog-add-panel {
-    border: solid 1px gray;
-    position: absolute;
-    top: 20%;
-    left: 10%;
-    width: 80%;
+.dialog-panel::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dialog-text {
     padding: 1em;
-    border-radius: 1em;
-    box-shadow: 0 0 10px;
-    background-color: white;
-    animation: confirm-entrance 0.5s;
-    animation-fill-mode: backwards;
+    font-size: 1.2em;
+}
+
+.dialog-button-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.dialog-button-cancel {
+    flex: 1;
+    height: 1.7rem;
+    border: none;
+    border-top: 2px solid var(--black);
+    border-right: 2px solid var(--black);
+    background-color: var(--danger);
+    color: var(--white);
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.dialog-button-confirm {
+    flex: 1;
+    height: 1.7rem;
+    border: none;
+    border-top: 2px solid var(--black);
+    background-color: var(--success);
+    color: var(--white);
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 @keyframes confirm-entrance {
@@ -53,6 +57,6 @@
     }
 
     to {
-        top: 20%;
+        top: 0%;
     }
 }
