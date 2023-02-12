@@ -49,7 +49,9 @@ export class QualificationListComponent {
   }
   OnDeleteConfirm() {
     let that = this;
-    console.log(this.qualificationToDelete);
+
+
+
     this.http.delete<any>('/qualificationsService', {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json'),
@@ -57,6 +59,7 @@ export class QualificationListComponent {
     }).subscribe({
       error: error => {
         console.error('There was an error!', error);
+        this.DeleteQualificationFromAllEmployees(this.qualificationToDelete);
       },
       complete() {
         that.fetchData();
@@ -69,11 +72,52 @@ export class QualificationListComponent {
     this.confirmDeleteDialog?.close();
   }
 
+  DeleteQualificationFromAllEmployees(quali: Qualification) {
+    // Get all employees with the qualification
+    this.http.get<any>(`/qualificationsService/${quali.designation}/employees`, {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+    }).subscribe(list => {
+      let employeeList = list.employees;
+
+      // Loop through all employees
+      for (let i = 0; i < employeeList.length; i++) {
+        let employee = employeeList[i];
+        this.RemoveQualificationFromEmployee(quali, employee.id);
+      }
+      this.OnDeleteConfirm();
+    });
+
+  }
+
+  RemoveQualificationFromEmployee(quali: Qualification, employeeId: number) {
+    let that = this;
+
+    this.http.delete<any>(`/employeeService/${employeeId}/qualifications`, {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json'),
+      body: quali
+    }).subscribe({
+      error: error => {
+        console.error('There was an error!', error);
+      }
+    });
+  }
+
   OnAddQuali() {
     this.confirmAddDialog?.showModal();
   }
   OnSaveConfirm() {
     let that = this;
+
+    // Check if the qualification already exists
+    for (let i = 0; i < this.qualifications$.length; i++) {
+      if (this.qualifications$[i].designation === this.qualification.designation) {
+        alert("Qualification already exists");
+        return;
+      }
+    }
+
     this.http.post<any>('/qualificationsService', `{"designation": "${this.qualification.designation}"}`, {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
