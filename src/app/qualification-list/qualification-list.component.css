@@ -6,7 +6,7 @@
     width: 100%;
     border: none;
     display: flex;
-    gap: .2rem;
+    margin-bottom: .5rem;
 }
 
 .flex-entry {
