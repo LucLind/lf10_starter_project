@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { KeycloakService } from 'keycloak-angular';
 import { Qualification } from '../Qualification';
 
 @Component({
@@ -10,8 +11,15 @@ import { Qualification } from '../Qualification';
 export class EmployeeServicePageComponent {
   public allQualifications: Qualification[] = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private readonly keycloak: KeycloakService) {
+    var t = this.keycloak.getToken();
+    t.then((token) => {
+      localStorage.setItem('token', token || '');
+    });
+
     this.fetchData();
+
+
   }
 
   fetchData() {

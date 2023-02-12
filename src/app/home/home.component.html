@@ -1,17 +1,22 @@
-<div class="home-container">
-  <app-navigation-header></app-navigation-header>
-  <section class="portal-container" *ngIf="userProfile">
-    <h2>Mitarbeiter-Portal</h2>
-    <a routerLink="/employeeservice" routerLinkActive="active"><button
-        class="button button-primary">Mitarbeiter</button></a>
-    <span class="spacer"></span>
-    <a routerLink="/qualifications" routerLinkActive="active"><button
-        class="button button-primary">Qualifikationen</button></a>
-  </section>
-  <button class="btn btn-danger btn-logout" *ngIf="isLoggedIn" type="button" (click)="logout()">Abmelden</button>
+<div class="home-header header-end">
+  <div class="home-container container">
 
-  <section class="start-container">
-    <h2 *ngIf="!isLoggedIn">Mitarbeiter-Portal</h2>
-    <button class="btn btn-success btn-login" *ngIf="!isLoggedIn" type="button" (click)="login()">Anmelden</button>
+
+    <span class="headline">Portale</span>
+
+
+  </div>
+</div>
+
+<div class="home-container">
+  <section class="portal-container">
+    <a routerLink="/employeeservice" routerLinkActive="active"><button class="button button-primary">Mitarbeiter
+        Portal</button></a>
+    <a routerLink="/qualifications" routerLinkActive="active">
+      <button disabled class="button button-primary">Projekte Portal</button></a>
+    <span class="spacer"></span>
+    <button class="button button-delete" *ngIf="isLoggedIn" type="button" (click)="logout()">Abmelden</button>
+    <button class="button button-confirm" *ngIf="!isLoggedIn" type="button" (click)="login()">Anmelden</button>
   </section>
+
 </div>

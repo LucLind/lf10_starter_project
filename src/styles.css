@@ -22,6 +22,13 @@
     transform: translateY(3px) translateX(3px);
 }
 
+.button:disabled {
+    background-color: var(--disabled);
+    color: var(--disabled-text);
+    box-shadow: none;
+    transform: translateY(3px) translateX(3px);
+}
+
 .button-primary {
     background-color: var(--primary);
     color: var(--primary-text);
@@ -217,10 +224,12 @@ button {
     --secondary-light: #ff9b4f;
     --secondary-text: var(--white);
 
-
     --primary: #004E89;
     --primary-light: #107da1;
     --primary-text: var(--white);
+
+    --disabled: #E0E0E0;
+    --disabled-text: #9E9E9E;
 
     --success: #0EAD69;
     --warning: #FFD23F;

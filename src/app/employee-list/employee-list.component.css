@@ -15,25 +15,6 @@
   flex-basis: 0;
 }
 
-
-.actions-box {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.actions-box app-search {
-  flex-grow: 1
-}
-
-.search-box {
-  min-height: 1.3rem;
-  flex-grow: 1;
-}
-
 .card-list {
   opacity: 1;
   animation: fadeIn 0.75s;
