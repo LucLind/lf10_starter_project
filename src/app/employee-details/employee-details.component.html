@@ -41,6 +41,7 @@
       <div class="qualification-field">
         <div class="quali-select" *ngIf="!disableEdit">
           <select (change)="selected($event)">
+            <option value=""></option>
             <option *ngFor="let quali of qualificationOptions | async" [value]="quali.designation">
               {{quali.designation}}
             </option>

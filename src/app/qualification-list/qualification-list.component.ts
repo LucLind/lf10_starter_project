@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { Qualification } from '../Qualification';
@@ -10,7 +10,11 @@ import { Qualification } from '../Qualification';
   styleUrls: ['./qualification-list.component.css']
 })
 export class QualificationListComponent {
-  qualifications$: Observable<Qualification[]>;
+  @Input()
+  qualifications$: Qualification[] = [];
+
+  @Output() qualificationChange: EventEmitter<any> = new EventEmitter<any>();
+
   qualificationToDelete: Qualification = new Qualification();
   dialogClass: string = "confirm-delete-dialog";
   dialogClassN: string = "confirm-delete-dialog";
@@ -20,8 +24,6 @@ export class QualificationListComponent {
   confirmAddDialog: HTMLDialogElement | null = null;
 
   constructor(private http: HttpClient, private router: Router) {
-    this.qualifications$ = of([]);
-    this.fetchData();
     this.qualification = new Qualification();
   }
   public qualification: Qualification;
@@ -32,9 +34,12 @@ export class QualificationListComponent {
   }
 
   public fetchData() {
-    this.qualifications$ = this.http.get<Qualification[]>('/qualificationsService', {
+    this.http.get<any>('/qualificationsService', {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
+    }).subscribe(list => {
+      this.qualifications$ = list;
+      this.qualificationChange.emit(this.qualifications$);
     });
   }
 

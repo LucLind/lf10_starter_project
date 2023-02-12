@@ -153,19 +153,18 @@
 .actions-box {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: start;
     align-items: center;
+    flex-wrap: wrap;
     gap: 1rem;
     margin-bottom: 1rem;
 }
 
-.actions-box app-search {
-    flex-grow: 1
-}
 
 .search-box {
-    min-height: 1.3rem;
-    flex-grow: 1;
+    max-width: 600px;
+    flex: 1;
+    min-width: 200px;
 }
 
 
@@ -192,6 +191,12 @@
 
 .d-flex {
     display: flex;
+}
+
+@media screen and (max-width: 768px) {
+    .navigation-container.container {
+        width: 100%;
+    }
 }
 
 body {

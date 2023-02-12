@@ -115,7 +115,7 @@ export class EmployeeEditComponent {
         console.error('There was an error!', error);
       },
       complete: () => {
-        window.location.href = "/employees";
+        window.location.href = "/employeeservice";
       }
     });
   }

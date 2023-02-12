@@ -1,4 +1,6 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Qualification } from '../Qualification';
 
 @Component({
   selector: 'app-employee-service-page',
@@ -6,6 +8,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./employee-service-page.component.css']
 })
 export class EmployeeServicePageComponent {
+  public allQualifications: Qualification[] = [];
+
+  constructor(private http: HttpClient) {
+    this.fetchData();
+  }
+
+  fetchData() {
+    this.http.get<any>('/qualificationsService', {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+    }).subscribe(list => {
+      this.allQualifications = list;
+    });
+  }
 
 
   OnTabClicked($event: MouseEvent, arg1: string) {

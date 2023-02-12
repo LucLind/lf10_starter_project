@@ -1,6 +1,5 @@
 <section>
   <div class="actions-box">
-    <app-search (searchTermChanged)="onSearchTermEntered($event)"></app-search>
     <a routerLink="/employees/create" routerLinkActive="active">
       <button class="button-primary-circle">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -11,6 +10,13 @@
         </svg>
       </button>
     </a>
+    <app-search class="search-box" (searchTermChanged)="onSearchTermEntered($event)"></app-search>
+    <select class="text-box search-box" (change)="onQualiFilterEntered($event)">
+      <option value="all">Alle</option>
+      <option *ngFor="let quali of qualificationOptions" [value]="quali.designation">
+        {{quali.designation}}
+      </option>
+    </select>
   </div>
 
   <div class="employee-card-list">

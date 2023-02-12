@@ -1,7 +1,8 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable, of } from "rxjs";
 import { Employee } from "../Employee";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Qualification } from '../Qualification';
 
 @Component({
   selector: 'app-employee-list',
@@ -13,6 +14,9 @@ export class EmployeeListComponent {
   employees$: Observable<Employee[]>;
   employeeList: Employee[];
 
+  @Input()
+  qualificationOptions: Qualification[] = [];
+
   searchTerm: string = '';
 
   constructor(private http: HttpClient) {
@@ -23,6 +27,26 @@ export class EmployeeListComponent {
 
   onSearchTermEntered(searchTerm: string) {
     this.searchTerm = searchTerm;
+  }
+  onQualiFilterEntered(quali: Event) {
+    const qualiId = (quali.target as HTMLInputElement).value;
+    if (qualiId === 'all') {
+      this.fetchData();
+      return;
+    }
+
+    this.http.get<any>(`/qualificationsService/${qualiId}/employees`, {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+    }).subscribe(list => {
+      this.employeeList = list.employees.map((e: any) => {
+        return {
+          id: e.id,
+          firstName: e.firstName,
+          lastName: e.lastName,
+        }
+      });
+    });
   }
 
   search(e: Employee) {
@@ -42,7 +66,6 @@ export class EmployeeListComponent {
   }
 
   fetchData() {
-    var token = localStorage.getItem('token');
     this.employees$ = this.http.get<Employee[]>('/employeeService', {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')

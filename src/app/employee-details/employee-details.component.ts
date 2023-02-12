@@ -37,6 +37,9 @@ export class EmployeeDetailsComponent {
   }
 
   public addQualification() {
+    if (this.selectedQualification.designation == null) {
+      return;
+    }
     var newQualification = new EmployeeQualificationEntry(this.selectedQualification.designation, true, false);
     this.employeeQualifications.push(newQualification);
   }

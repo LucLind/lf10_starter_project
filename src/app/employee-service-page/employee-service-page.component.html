@@ -6,6 +6,8 @@
         (click)="OnTabClicked($event, 'qualification')">Qualifikationen</button>
 </div>
 <div class="main-view container">
-    <app-employee-list id="employee-list" class="visible container"></app-employee-list>
-    <app-qualification-list id="qualification-list" class="hidden container"></app-qualification-list>
+    <app-employee-list id="employee-list" class="visible container"
+        [qualificationOptions]="allQualifications"></app-employee-list>
+    <app-qualification-list id="qualification-list" class="hidden container" [qualifications$]="allQualifications"
+        (qualificationChange)="allQualifications=$event"></app-qualification-list>
 </div>
