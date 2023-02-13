@@ -10,6 +10,15 @@ import { EmployeeQualificationEntry } from '../Qualification';
 })
 export class EmployeeCreateComponent {
   OnSave() {
+    if (!this.formValid()) {
+      alert("Alle Felder müssen ausgefüllt werden");
+      return;
+    }
+    if (!this.postalCodeValid()) {
+      alert("Postleitzahl muss 5-stellig sein");
+      return;
+    }
+
     var body = {
       "lastName": this.employee.lastName,
       "firstName": this.employee.firstName,
@@ -40,4 +49,17 @@ export class EmployeeCreateComponent {
   constructor(private http: HttpClient) {
     this.employee = new Employee();
   }
+
+  public formValid() {
+    return this.employee.firstName != null && this.employee.firstName.length > 0
+      && this.employee.lastName != null && this.employee.lastName.length > 0
+      && this.employee.street != null && this.employee.street.length > 0
+      && this.employee.postcode != null && this.employee.postcode.length > 0
+      && this.employee.city != null && this.employee.city.length > 0
+      && this.employee.phone != null && this.employee.phone.length > 0;
+  }
+  public postalCodeValid() {
+    return this.employee.postcode != null && this.employee.postcode.length == 5;
+  }
+
 }

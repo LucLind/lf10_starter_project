@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, Output } from '@angular/core';
+import { Component, Output, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { mapTo, Observable, of, take } from 'rxjs';
 import { Employee } from '../Employee';
+import { EmployeeDetailsComponent } from '../employee-details/employee-details.component';
 import { EmployeeQualificationEntry } from '../Qualification';
 
 @Component({
@@ -16,6 +17,7 @@ export class EmployeeEditComponent {
   emp: Employee;
   @Output()
   employeeQualifications: EmployeeQualificationEntry[];
+
   id;
   disableEdit: boolean = true;
   dialogElement: HTMLDialogElement | null = null;
@@ -51,6 +53,15 @@ export class EmployeeEditComponent {
   }
 
   OnSave() {
+    if (!this.formValid()) {
+      alert("Alle Felder müssen ausgefüllt werden");
+      return;
+    }
+    if (!this.postalCodeValid()) {
+      alert("Postleitzahl muss 5-stellig sein");
+      return;
+    }
+
     var body = {
       "lastName": this.emp.lastName,
       "firstName": this.emp.firstName,
@@ -126,5 +137,17 @@ export class EmployeeEditComponent {
 
   OnEdit() {
     this.disableEdit = false;
+  }
+
+  public formValid() {
+    return this.emp.firstName != null && this.emp.firstName.length > 0
+      && this.emp.lastName != null && this.emp.lastName.length > 0
+      && this.emp.street != null && this.emp.street.length > 0
+      && this.emp.postcode != null && this.emp.postcode.length > 0
+      && this.emp.city != null && this.emp.city.length > 0
+      && this.emp.phone != null && this.emp.phone.length > 0;
+  }
+  public postalCodeValid() {
+    return this.emp.postcode != null && this.emp.postcode.length == 5;
   }
 }
