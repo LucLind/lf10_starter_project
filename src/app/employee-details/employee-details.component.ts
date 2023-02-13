@@ -34,6 +34,8 @@ export class EmployeeDetailsComponent {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
     });
+
+    this.updateQualificationOptions();
   }
 
   public addQualification() {
@@ -42,6 +44,7 @@ export class EmployeeDetailsComponent {
     }
     var newQualification = new EmployeeQualificationEntry(this.selectedQualification.designation, true, false);
     this.employeeQualifications.push(newQualification);
+    this.updateQualificationOptions();
   }
   public selected(event: any) {
     this.selectedQualification = new Qualification();
@@ -49,6 +52,19 @@ export class EmployeeDetailsComponent {
   }
 
 
+  private updateQualificationOptions() {
+    // remove qualification options that are inside employeeQualifications
+    this.qualificationOptions.subscribe((qualifications: Qualification[]) => {
+      qualifications.forEach((qualification: Qualification) => {
+        this.employeeQualifications.forEach((employeeQualification: EmployeeQualificationEntry) => {
+          if (employeeQualification.designation === qualification.designation) {
+            qualifications.splice(qualifications.indexOf(qualification), 1);
+          }
+        });
+      });
+      this.qualificationOptions = of(qualifications);
+    });
+  }
 }
 
 
