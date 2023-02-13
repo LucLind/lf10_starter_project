@@ -12,6 +12,7 @@ import { Qualification } from '../Qualification';
 export class EmployeeListComponent {
 
   employees$: Observable<Employee[]>;
+  filterdEmployees$: Employee[];
   employeeList: Employee[];
 
   @Input()
@@ -21,12 +22,16 @@ export class EmployeeListComponent {
 
   constructor(private http: HttpClient) {
     this.employees$ = of([]);
+    this.filterdEmployees$ = [];
     this.employeeList = [];
     this.fetchData();
   }
 
   onSearchTermEntered(searchTerm: string) {
     this.searchTerm = searchTerm;
+
+    // filter employees
+    this.filterdEmployees$ = this.employeeList.filter(e => this.search(e));
   }
   onQualiFilterEntered(quali: Event) {
     const qualiId = (quali.target as HTMLInputElement).value;
@@ -46,6 +51,7 @@ export class EmployeeListComponent {
           lastName: e.lastName,
         }
       });
+      this.filterdEmployees$ = this.employeeList;
     });
   }
 
@@ -72,6 +78,7 @@ export class EmployeeListComponent {
     });
     this.employees$.subscribe(list => {
       this.employeeList = list;
+      this.filterdEmployees$ = this.employeeList;
     })
   }
 
