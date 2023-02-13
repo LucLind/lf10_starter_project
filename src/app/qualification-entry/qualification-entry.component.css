@@ -6,6 +6,10 @@
     border-radius: 0 .3rem .3rem 0;
 }
 
+.quali-entry-delete:hover {
+    background-color: var(--danger-light);
+}
+
 .quali-entry.marked-delete .quali-entry-content {
     text-decoration: line-through;
     background-color: var(--disabled);
@@ -14,6 +18,10 @@
 
 .marked-delete .quali-entry-delete {
     background-color: var(--success);
+}
+
+.marked-delete .quali-entry-delete:hover {
+    background-color: var(--success-light);
 }
 
 .quali-entry {

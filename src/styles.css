@@ -68,9 +68,17 @@
     color: var(--white);
 }
 
+.button-confirm:hover {
+    background-color: var(--success-light);
+}
+
 .button-delete {
     background-color: var(--danger);
     color: var(--white);
+}
+
+.button-delete:hover {
+    background-color: var(--danger-light);
 }
 
 .button-row {
@@ -234,6 +242,10 @@ button {
     --success: #0EAD69;
     --warning: #FFD23F;
     --danger: #FF3B30;
+
+    --success-light: #4edc9a;
+    --warning-light: #ffeb7f;
+    --danger-light: #ff7b6f;
 
     --black: #011627;
     --white: #FDFFFC;

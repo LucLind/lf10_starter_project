@@ -18,6 +18,11 @@
     border-bottom: 3px solid var(--primary-text);
 }
 
+.button-tab:hover {
+    background-color: var(--primary-light);
+
+}
+
 #employee-list {
     position: absolute;
 }
